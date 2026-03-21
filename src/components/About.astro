@@ -11,13 +11,11 @@ const i18n = t(locale);
 
 const partners = [
   {
-    name: 'Van-Romel Alves Sena Neto',
     linkedin: 'https://www.linkedin.com/in/van-romel-neto/',
     gradient: 'from-indigo-500 to-blue-600',
     initials: 'VN',
   },
   {
-    name: 'Rafael Carvalho Gomes',
     linkedin: 'https://www.linkedin.com/in/rafael-carvalho-gomes-700752101/',
     gradient: 'from-emerald-500 to-teal-600',
     initials: 'RG',
@@ -51,7 +49,7 @@ const partners = [
           <div>
             <h3 class="text-xl font-semibold text-slate-900 dark:text-white">
               <a href={partners[0].linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">
-                {partners[0].name}
+                {i18n.about.dev1Name}
               </a>
             </h3>
             <p class="text-sm text-indigo-600 dark:text-indigo-400 font-medium">{i18n.about.dev1Role}</p>
@@ -63,7 +61,7 @@ const partners = [
         </p>
 
         <div class="flex flex-wrap gap-2">
-          {['Java', 'Spring Boot', 'Kubernetes', 'Azure', 'Docker', 'Terraform', 'MySQL', 'PostgreSQL', 'CI/CD'].map((skill: string) => (
+          {['Java', 'Kotlin', 'Spring Boot', 'Kubernetes', 'Azure', 'Docker', 'Terraform', 'PostgreSQL', 'CI/CD'].map((skill: string) => (
             <span class="inline-flex items-center rounded-lg bg-slate-100 dark:bg-slate-800/80 px-3 py-1 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-default">
               {skill}
             </span>
@@ -79,7 +77,7 @@ const partners = [
           <div>
             <h3 class="text-xl font-semibold text-slate-900 dark:text-white">
               <a href={partners[1].linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">
-                {partners[1].name}
+                {i18n.about.dev2Name}
               </a>
             </h3>
             <p class="text-sm text-indigo-600 dark:text-indigo-400 font-medium">{i18n.about.dev2Role}</p>
@@ -91,7 +89,7 @@ const partners = [
         </p>
 
         <div class="flex flex-wrap gap-2">
-          {['React', 'Angular', 'TypeScript', 'Node.js', 'Next.js', 'Tailwind CSS', 'GraphQL', 'MongoDB'].map((skill: string) => (
+          {['React', 'Angular', 'TypeScript', 'Node.js', 'Spring Boot', 'JavaScript', 'OutSystems', 'RPA'].map((skill: string) => (
             <span class="inline-flex items-center rounded-lg bg-slate-100 dark:bg-slate-800/80 px-3 py-1 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-default">
               {skill}
             </span>

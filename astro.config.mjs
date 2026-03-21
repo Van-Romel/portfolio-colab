@@ -7,8 +7,8 @@ export default defineConfig({
   base: '/portfolio-colab',
   output: 'static',
   i18n: {
-    defaultLocale: 'pt-pt',
-    locales: ['pt-pt', 'en', 'pt-br', 'fr'],
+    defaultLocale: 'en',
+    locales: ['en', 'pt-pt', 'pt-br', 'fr'],
     routing: {
       prefixDefaultLocale: false,
     },

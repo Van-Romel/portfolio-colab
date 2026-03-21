@@ -1,0 +1,172 @@
+---
+import type { Locale } from '../i18n/utils';
+import { t } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const i18n = t(locale);
+---
+
+<section id="worldwide" class="relative py-24 sm:py-32 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-1/4 left-1/4 h-[400px] w-[400px] rounded-full bg-indigo-500/5 dark:bg-indigo-500/5 blur-[100px]"></div>
+    <div class="absolute bottom-1/4 right-1/4 h-[300px] w-[300px] rounded-full bg-blue-500/5 dark:bg-blue-500/5 blur-[80px]"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center animate-on-scroll mb-16">
+      <p class="text-sm font-semibold uppercase tracking-widest text-indigo-500 dark:text-indigo-400">{i18n.worldwide.label}</p>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
+        {i18n.worldwide.title} <span class="bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">{i18n.worldwide.titleHighlight}</span>
+      </h2>
+      <p class="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+        {i18n.worldwide.text}
+      </p>
+    </div>
+
+    <div class="relative mx-auto max-w-5xl animate-on-scroll">
+      <div class="aspect-[2/1] relative">
+        <svg id="world-map" class="w-full h-full" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Ocean background gradient -->
+          <defs>
+            <linearGradient id="oceanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" class="text-slate-100 dark:text-slate-900" stop-color="currentColor" />
+              <stop offset="100%" class="text-slate-200 dark:text-slate-800" stop-color="currentColor" />
+            </linearGradient>
+            <linearGradient id="landGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" class="text-indigo-400 dark:text-indigo-600" stop-color="currentColor" />
+              <stop offset="100%" class="text-blue-500 dark:text-blue-700" stop-color="currentColor" />
+            </linearGradient>
+            <linearGradient id="particleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#6366f1" />
+              <stop offset="100%" stop-color="#3b82f6" />
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- Simplified world map paths (continents) -->
+          <rect width="1000" height="500" fill="url(#oceanGradient)" rx="20" />
+
+          <!-- North America -->
+          <path class="world-land opacity-60" fill="url(#landGradient)" d="M50,80 L200,60 L280,100 L260,180 L180,200 L100,160 L40,120 Z" />
+          <!-- South America -->
+          <path class="world-land opacity-60" fill="url(#landGradient)" d="M220,220 L300,210 L320,280 L280,380 L230,350 L200,280 Z" />
+          <!-- Europe -->
+          <path class="world-land opacity-60" fill="url(#landGradient)" d="M420,100 L520,90 L540,140 L480,160 L430,150 Z" />
+          <!-- Africa -->
+          <path class="world-land opacity-60" fill="url(#landGradient)" d="M430,180 L520,170 L550,250 L500,350 L440,320 L410,250 Z" />
+          <!-- Asia -->
+          <path class="world-land opacity-60" fill="url(#landGradient)" d="M530,70 L750,60 L850,120 L820,200 L700,220 L600,180 L540,140 Z" />
+          <!-- Australia -->
+          <path class="world-land opacity-60" fill="url(#landGradient)" d="M750,300 L880,290 L900,360 L780,380 L740,340 Z" />
+
+          <!-- Location markers -->
+          <g class="markers">
+            <!-- Europe (Portugal) -->
+            <circle cx="420" cy="140" r="6" class="marker marker-europe" fill="#6366f1" filter="url(#glow)">
+              <animate attributeName="r" values="6;8;6" dur="2s" repeatCount="indefinite" />
+              <animate attributeName="opacity" values="1;0.7;1" dur="2s" repeatCount="indefinite" />
+            </circle>
+            <!-- South America (Brazil) -->
+            <circle cx="280" cy="280" r="6" class="marker marker-sa" fill="#6366f1" filter="url(#glow)">
+              <animate attributeName="r" values="6;8;6" dur="2s" repeatCount="indefinite" />
+              <animate attributeName="opacity" values="1;0.7;1" dur="2s" repeatCount="indefinite" />
+            </circle>
+            <!-- North America -->
+            <circle cx="150" cy="120" r="4" class="marker marker-na" fill="#3b82f6" opacity="0.8">
+              <animate attributeName="r" values="4;5;4" dur="2.5s" repeatCount="indefinite" />
+            </circle>
+            <!-- Asia -->
+            <circle cx="700" cy="150" r="4" class="marker marker-asia" fill="#3b82f6" opacity="0.8">
+              <animate attributeName="r" values="4;5;4" dur="2.5s" repeatCount="indefinite" />
+            </circle>
+          </g>
+
+          <!-- Animated particle paths -->
+          <g class="particle-paths" stroke="url(#particleGradient)" stroke-width="2" fill="none" opacity="0.6">
+            <!-- Europe to North America -->
+            <path id="path-eu-na" d="M420,140 Q350,100 150,120" stroke-dasharray="8,4" />
+            <!-- Europe to South America -->
+            <path id="path-eu-sa" d="M420,140 Q350,200 280,280" stroke-dasharray="8,4" />
+            <!-- Europe to Asia -->
+            <path id="path-eu-asia" d="M520,140 Q610,145 700,150" stroke-dasharray="8,4" />
+            <!-- South America to North America -->
+            <path id="path-sa-na" d="M280,280 Q215,200 150,120" stroke-dasharray="8,4" />
+            <!-- North America to Asia -->
+            <path id="path-na-asia" d="M150,120 Q425,135 700,150" stroke-dasharray="8,4" />
+          </g>
+
+          <!-- Animated particles -->
+          <g class="particles" fill="#6366f1">
+            <circle r="3" filter="url(#glow)">
+              <animateMotion dur="3s" repeatCount="indefinite">
+                <mpath href="#path-eu-na" />
+              </animateMotion>
+            </circle>
+            <circle r="3" filter="url(#glow)">
+              <animateMotion dur="3.5s" repeatCount="indefinite" begin="0.5s">
+                <mpath href="#path-eu-sa" />
+              </animateMotion>
+            </circle>
+            <circle r="3" filter="url(#glow)">
+              <animateMotion dur="2.5s" repeatCount="indefinite" begin="1s">
+                <mpath href="#path-eu-asia" />
+              </animateMotion>
+            </circle>
+            <circle r="3" filter="url(#glow)">
+              <animateMotion dur="3s" repeatCount="indefinite" begin="1.5s">
+                <mpath href="#path-sa-na" />
+              </animateMotion>
+            </circle>
+            <circle r="3" filter="url(#glow)">
+              <animateMotion dur="4s" repeatCount="indefinite" begin="2s">
+                <mpath href="#path-na-asia" />
+              </animateMotion>
+            </circle>
+          </g>
+
+          <!-- Pulse rings -->
+          <g class="pulse-rings" fill="none" stroke="#6366f1" stroke-width="2">
+            <circle cx="420" cy="140" r="10" opacity="0">
+              <animate attributeName="r" values="10;25" dur="2s" repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0.5;0" dur="2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="280" cy="280" r="10" opacity="0">
+              <animate attributeName="r" values="10;25" dur="2s" repeatCount="indefinite" begin="1s" />
+              <animate attributeName="opacity" values="0.5;0" dur="2s" repeatCount="indefinite" begin="1s" />
+            </circle>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Region labels -->
+      <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+        <div class="p-4 rounded-xl bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-800/60">
+          <p class="text-sm font-medium text-slate-900 dark:text-white">Europe</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Portugal HQ</p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-800/60">
+          <p class="text-sm font-medium text-slate-900 dark:text-white">South America</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Brazil Team</p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-800/60">
+          <p class="text-sm font-medium text-slate-900 dark:text-white">North America</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400">US Clients</p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-800/60">
+          <p class="text-sm font-medium text-slate-900 dark:text-white">Asia Pacific</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Global Reach</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

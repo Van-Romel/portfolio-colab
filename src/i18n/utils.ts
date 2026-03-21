@@ -3,19 +3,19 @@ import { translations, type Locale } from './translations';
 export type { Locale };
 export { translations };
 
-export const locales: Locale[] = ['pt-pt', 'en', 'pt-br', 'fr'];
-export const defaultLocale: Locale = 'pt-pt';
+export const locales: Locale[] = ['en', 'pt-pt', 'pt-br', 'fr'];
+export const defaultLocale: Locale = 'en';
 
 export const localeLabels: Record<Locale, string> = {
-  'pt-pt': 'PT',
-  'en': 'EN',
-  'pt-br': 'BR',
-  'fr': 'FR',
+  'en': 'English',
+  'pt-pt': 'Português PT',
+  'pt-br': 'Português BR',
+  'fr': 'Français',
 };
 
 export const localeNames: Record<Locale, string> = {
-  'pt-pt': 'Português',
   'en': 'English',
+  'pt-pt': 'Português',
   'pt-br': 'Português (BR)',
   'fr': 'Français',
 };

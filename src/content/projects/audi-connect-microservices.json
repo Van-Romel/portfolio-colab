@@ -1,0 +1,19 @@
+{
+  "title": {
+    "en": "Audi Connect Microservices",
+    "pt-pt": "Audi Connect Microservices",
+    "pt-br": "Audi Connect Microservices",
+    "fr": "Audi Connect Microservices"
+  },
+  "description": {
+    "en": "Volkswagen project: Kotlin/Java microservices for Audi Connect platform. Kubernetes orchestration with high availability across multiple regions.",
+    "pt-pt": "Projeto Volkswagen: microservices Kotlin/Java para plataforma Audi Connect. Orquestração Kubernetes com alta disponibilidade multi-região.",
+    "pt-br": "Projeto Volkswagen: microservices Kotlin/Java para plataforma Audi Connect. Orquestração Kubernetes com alta disponibilidade multi-região.",
+    "fr": "Projet Volkswagen: microservices Kotlin/Java pour plateforme Audi Connect. Orchestration Kubernetes haute disponibilité multi-région."
+  },
+  "dev": "Van-Romel",
+  "techStack": ["Kotlin", "Java", "Kubernetes", "Docker", "Microservices", "Kafka"],
+  "githubUrl": "https://github.com/van-romel",
+  "demoUrl": "https://www.audi.com",
+  "order": 1
+}

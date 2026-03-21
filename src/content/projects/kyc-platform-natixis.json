@@ -1,0 +1,19 @@
+{
+  "title": {
+    "en": "KYC Platform Natixis",
+    "pt-pt": "Plataforma KYC Natixis",
+    "pt-br": "Plataforma KYC Natixis",
+    "fr": "Plateforme KYC Natixis"
+  },
+  "description": {
+    "en": "Know Your Customer banking platform for Natixis. Spring Boot backend with Angular frontend, handling secure customer verification workflows.",
+    "pt-pt": "Plataforma bancária Know Your Customer para Natixis. Backend Spring Boot com frontend Angular, processando workflows seguros de verificação de clientes.",
+    "pt-br": "Plataforma bancária Know Your Customer para Natixis. Backend Spring Boot com frontend Angular, processando workflows seguros de verificação de clientes.",
+    "fr": "Plateforme bancaire Know Your Customer pour Natixis. Backend Spring Boot avec frontend Angular, gestion des workflows sécurisés de vérification clients."
+  },
+  "dev": "Van-Romel",
+  "techStack": ["Spring Boot", "Angular", "PostgreSQL", "Redis", "OAuth2", "Docker"],
+  "githubUrl": "https://github.com/van-romel",
+  "demoUrl": "https://natixis.com",
+  "order": 2
+}
