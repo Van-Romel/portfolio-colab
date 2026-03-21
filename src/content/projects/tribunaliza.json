@@ -1,0 +1,19 @@
+{
+  "title": {
+    "pt-pt": "Tribunaliza",
+    "en": "Tribunaliza",
+    "pt-br": "Tribunaliza",
+    "fr": "Tribunaliza"
+  },
+  "description": {
+    "pt-pt": "Plataforma judicial digital. Líder técnico desde 2018. Sistema completo de gestão de processos jurídicos.",
+    "en": "Digital judicial platform. Tech lead since 2018. Complete legal case management system.",
+    "pt-br": "Plataforma judicial digital. Líder técnico desde 2018. Sistema completo de gestão de processos jurídicos.",
+    "fr": "Plateforme judiciaire numérique. Lead technique depuis 2018. Système complet de gestion des affaires juridiques."
+  },
+  "dev": "Rafael",
+  "techStack": ["React", "Node.js", "PostgreSQL", "Redis", "Docker", "AWS"],
+  "githubUrl": "https://github.com/rafaelcgomes",
+  "demoUrl": "https://tribunaliza.com.br",
+  "order": 4
+}

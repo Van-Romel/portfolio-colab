@@ -6,4 +6,11 @@ export default defineConfig({
   site: 'https://van-romel.github.io',
   base: '/portfolio-colab',
   output: 'static',
+  i18n: {
+    defaultLocale: 'pt-pt',
+    locales: ['pt-pt', 'en', 'pt-br', 'fr'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
 });

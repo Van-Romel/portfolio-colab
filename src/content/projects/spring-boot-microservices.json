@@ -1,0 +1,19 @@
+{
+  "title": {
+    "pt-pt": "Spring Boot 4 Microservices",
+    "en": "Spring Boot 4 Microservices",
+    "pt-br": "Spring Boot 4 Microservices",
+    "fr": "Spring Boot 4 Microservices"
+  },
+  "description": {
+    "pt-pt": "Arquitetura de microservices com Spring Boot 4, API Gateway e service mesh. Performance +300%.",
+    "en": "Microservices architecture with Spring Boot 4, API Gateway and service mesh. Performance +300%.",
+    "pt-br": "Arquitetura de microservices com Spring Boot 4, API Gateway e service mesh. Performance +300%.",
+    "fr": "Architecture microservices avec Spring Boot 4, API Gateway et service mesh. Performance +300%."
+  },
+  "dev": "Van-Romel",
+  "techStack": ["Java 21", "Spring Boot", "PostgreSQL", "Redis", "RabbitMQ", "Docker"],
+  "githubUrl": "https://github.com/van-romel",
+  "demoUrl": "https://demo.sctechlabs.com",
+  "order": 2
+}

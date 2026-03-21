@@ -1,8 +1,19 @@
 {
-  "title": "Migração Azure K8s",
-  "description": "Migração completa de infraestrutura on-premise para Azure Kubernetes Service com zero downtime. Redução de 40% em custos operacionais e garantia de 99.9% uptime em produção.",
+  "title": {
+    "pt-pt": "Migração Azure Kubernetes",
+    "en": "Azure Kubernetes Migration",
+    "pt-br": "Migração Azure Kubernetes",
+    "fr": "Migration Azure Kubernetes"
+  },
+  "description": {
+    "pt-pt": "Migração completa de infraestrutura on-premise para Azure Kubernetes Service com zero downtime. Escalou microservices 10x.",
+    "en": "Complete migration from on-premise infrastructure to Azure Kubernetes Service with zero downtime. Scaled microservices 10x.",
+    "pt-br": "Migração completa de infraestrutura on-premise para Azure Kubernetes Service com zero downtime. Escalou microservices 10x.",
+    "fr": "Migration complète de l'infrastructure on-premise vers Azure Kubernetes Service sans interruption. Microservices mis à l'échelle 10x."
+  },
+  "dev": "Van-Romel",
   "techStack": ["Azure", "Kubernetes", "Terraform", "Docker", "Helm", "Prometheus"],
-  "githubUrl": "https://github.com/colabdevpt",
-  "demoUrl": "https://demo.colabdev.pt",
+  "githubUrl": "https://github.com/van-romel",
+  "demoUrl": "https://demo.sctechlabs.com",
   "order": 1
 }

@@ -4,17 +4,23 @@ import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Projects from '../components/Projects.astro';
 import About from '../components/About.astro';
+import GlobalReach from '../components/GlobalReach.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+import { t } from '../i18n/utils';
+
+const locale = 'pt-pt';
+const i18n = t(locale);
 ---
 
-<Layout>
-  <Header />
+<Layout locale={locale} title={i18n.meta.title} description={i18n.meta.description}>
+  <Header locale={locale} />
   <main>
-    <Hero />
-    <Projects />
-    <About />
-    <Contact />
+    <Hero locale={locale} />
+    <Projects locale={locale} />
+    <About locale={locale} />
+    <GlobalReach locale={locale} />
+    <Contact locale={locale} />
   </main>
-  <Footer />
+  <Footer locale={locale} />
 </Layout>

@@ -1,5 +1,16 @@
 ---
-const techBadges = ['Spring Boot', 'Kubernetes', 'Azure', 'React', 'Angular', 'Docker', 'CI/CD'];
+import type { Locale } from '../i18n/utils';
+import { t } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const i18n = t(locale);
+
+const base = '/portfolio-colab';
+const projectsUrl = locale === 'pt-pt' ? `${base}/projetos/` : `${base}/${locale}/projetos/`;
 ---
 
 <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -18,37 +29,36 @@ const techBadges = ['Spring Boot', 'Kubernetes', 'Azure', 'React', 'Angular', 'D
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
         </span>
-        Disponível para novos projetos
+        {i18n.hero.badge}
       </div>
     </div>
 
     <h1 class="animate-on-scroll text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1]">
-      <span class="block text-slate-900 dark:text-white">Consultoria</span>
-      <span class="block mt-2 bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">Full-Stack & DevOps</span>
+      <span class="block text-slate-900 dark:text-white">{i18n.hero.title1}</span>
+      <span class="block mt-2 bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">{i18n.hero.title2}</span>
     </h1>
 
     <p class="animate-on-scroll stagger-1 mx-auto mt-6 max-w-2xl text-lg sm:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
-      Expertise em Spring Boot, Kubernetes, Azure, React & Angular.
-      Projetos B2B escaláveis com foco em qualidade e performance.
+      {i18n.hero.subtitle}
     </p>
 
     <div class="animate-on-scroll stagger-2 mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="#projetos" class="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all duration-300 hover:-translate-y-0.5">
-        Ver Projetos
+      <a href={projectsUrl} class="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all duration-300 hover:-translate-y-0.5">
+        {i18n.hero.cta1}
         <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
         </svg>
       </a>
-      <a href="#contato" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 px-8 py-3.5 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-sm">
+      <a href={`${locale === 'pt-pt' ? base : `${base}/${locale}`}/#contato`} class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 px-8 py-3.5 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-sm">
         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
         </svg>
-        Contato
+        {i18n.hero.cta2}
       </a>
     </div>
 
     <div class="animate-on-scroll stagger-3 mt-16 flex flex-wrap items-center justify-center gap-3">
-      {techBadges.map(tech => (
+      {['Spring Boot', 'Kubernetes', 'Azure', 'React', 'Angular', 'Docker', 'CI/CD'].map(tech => (
         <span class="px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-800 text-xs font-medium text-slate-500 dark:text-slate-500 hover:border-indigo-500/30 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors cursor-default">
           {tech}
         </span>

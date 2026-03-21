@@ -1,32 +1,42 @@
 ---
-import '../styles/global.css';
+import type { Locale } from '../i18n/utils';
 
 interface Props {
+  locale: Locale;
   title?: string;
   description?: string;
 }
 
-const {
-  title = 'Colab Dev PT | Consultoria Full-Stack & DevOps',
-  description = 'Expertise em Spring Boot, Kubernetes, Azure, React/Angular. Projetos B2B escaláveis em Portugal.',
-} = Astro.props;
+const { locale, title, description } = Astro.props;
+
+import '../styles/global.css';
+import { localeHtmlLang } from '../i18n/utils';
+
+const htmlLang = localeHtmlLang[locale];
+
+const metaTitle = title || 'SC Tech Labs | Consultoria Software Engineering';
+const metaDesc = description || 'Consultoria em engenharia de software. Spring Boot, Kubernetes, Azure, React, Angular. Projetos B2B escaláveis na Europa e América do Sul.';
+
+const canonicalPath = locale === 'pt-pt' ? '/portfolio-colab/' : `/portfolio-colab/${locale}/`;
 ---
 
 <!doctype html>
-<html lang="pt" class="dark scroll-smooth">
+<html lang={htmlLang} class="dark scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/portfolio-colab/favicon.svg" />
+    <link rel="icon" href="/portfolio-colab/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <title>{metaTitle}</title>
+    <meta name="description" content={metaDesc} />
     <meta name="robots" content="index, follow" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <link rel="canonical" href={`https://van-romel.github.io${canonicalPath}`} />
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={metaDesc} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="pt_PT" />
+    <meta property="og:locale" content={locale === 'pt-pt' ? 'pt_PT' : locale === 'en' ? 'en_US' : locale === 'pt-br' ? 'pt_BR' : 'fr_FR'} />
+    <meta property="og:url" content={`https://van-romel.github.io${canonicalPath}`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />

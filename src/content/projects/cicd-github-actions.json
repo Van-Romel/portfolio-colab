@@ -1,8 +1,0 @@
-{
-  "title": "CI/CD GitHub Actions",
-  "description": "Pipeline CI/CD completo com GitHub Actions, testes automatizados, análise estática e deploy automático em múltiplos ambientes. Tempo de deploy reduzido de 45min para 8min.",
-  "techStack": ["GitHub Actions", "Docker", "SonarQube", "Trivy", "ArgoCD", "Bash"],
-  "githubUrl": "https://github.com/colabdevpt",
-  "demoUrl": "https://demo.colabdev.pt",
-  "order": 3
-}
