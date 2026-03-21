@@ -1,0 +1,8 @@
+{
+  "title": "Migração Azure K8s",
+  "description": "Migração completa de infraestrutura on-premise para Azure Kubernetes Service com zero downtime. Redução de 40% em custos operacionais e garantia de 99.9% uptime em produção.",
+  "techStack": ["Azure", "Kubernetes", "Terraform", "Docker", "Helm", "Prometheus"],
+  "githubUrl": "https://github.com/colabdevpt",
+  "demoUrl": "https://demo.colabdev.pt",
+  "order": 1
+}

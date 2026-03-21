@@ -1,0 +1,8 @@
+{
+  "title": "Microservices Spring Boot 4",
+  "description": "Arquitetura de microservices com Spring Boot 4, API Gateway e service mesh. Processamento de +50k requests/min com latência média inferior a 100ms.",
+  "techStack": ["Java 21", "Spring Boot", "PostgreSQL", "Redis", "RabbitMQ", "Docker"],
+  "githubUrl": "https://github.com/colabdevpt",
+  "demoUrl": "https://demo.colabdev.pt",
+  "order": 2
+}

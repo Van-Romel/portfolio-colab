@@ -1,0 +1,8 @@
+{
+  "title": "Monitoring Prometheus/Grafana",
+  "description": "Stack de observabilidade completa com Prometheus, Grafana e alerting inteligente. Dashboards customizados para métricas de negócio e infraestrutura com alertas proativos.",
+  "techStack": ["Prometheus", "Grafana", "AlertManager", "Loki", "Jaeger", "Kubernetes"],
+  "githubUrl": "https://github.com/colabdevpt",
+  "demoUrl": "https://demo.colabdev.pt",
+  "order": 4
+}

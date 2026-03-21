@@ -1,0 +1,64 @@
+---
+const techBadges = ['Spring Boot', 'Kubernetes', 'Azure', 'React', 'Angular', 'Docker', 'CI/CD'];
+---
+
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-indigo-500/20 dark:bg-indigo-500/10 blur-[100px]"></div>
+    <div class="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-blue-500/20 dark:bg-blue-500/10 blur-[100px]"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-violet-500/10 dark:bg-violet-500/5 blur-[120px]"></div>
+  </div>
+
+  <div class="absolute inset-0 opacity-[0.015] dark:opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0); background-size: 40px 40px;"></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+    <div class="animate-on-scroll">
+      <div class="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-1.5 text-sm text-indigo-600 dark:text-indigo-400 mb-8">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+        </span>
+        Disponível para novos projetos
+      </div>
+    </div>
+
+    <h1 class="animate-on-scroll text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1]">
+      <span class="block text-slate-900 dark:text-white">Consultoria</span>
+      <span class="block mt-2 bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">Full-Stack & DevOps</span>
+    </h1>
+
+    <p class="animate-on-scroll stagger-1 mx-auto mt-6 max-w-2xl text-lg sm:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
+      Expertise em Spring Boot, Kubernetes, Azure, React & Angular.
+      Projetos B2B escaláveis com foco em qualidade e performance.
+    </p>
+
+    <div class="animate-on-scroll stagger-2 mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#projetos" class="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all duration-300 hover:-translate-y-0.5">
+        Ver Projetos
+        <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </a>
+      <a href="#contato" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 px-8 py-3.5 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-sm">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+        </svg>
+        Contato
+      </a>
+    </div>
+
+    <div class="animate-on-scroll stagger-3 mt-16 flex flex-wrap items-center justify-center gap-3">
+      {techBadges.map(tech => (
+        <span class="px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-800 text-xs font-medium text-slate-500 dark:text-slate-500 hover:border-indigo-500/30 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors cursor-default">
+          {tech}
+        </span>
+      ))}
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="h-5 w-5 text-slate-400 dark:text-slate-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+    </svg>
+  </div>
+</section>
