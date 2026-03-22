@@ -17,11 +17,11 @@ const htmlLang = localeHtmlLang[locale];
 const metaTitle = title || 'SC Tech Labs | Consultoria Software Engineering';
 const metaDesc = description || 'Consultoria em engenharia de software. Spring Boot, Kubernetes, Azure, React, Angular. Projetos B2B escaláveis na Europa e América do Sul.';
 
-const canonicalPath = locale === 'pt-pt' ? '/portfolio-colab/' : `/portfolio-colab/${locale}/`;
+const canonicalPath = locale === 'en' ? '/portfolio-colab/' : `/portfolio-colab/${locale}/`;
 ---
 
 <!doctype html>
-<html lang={htmlLang} class="dark scroll-smooth">
+<html lang={htmlLang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,18 +35,46 @@ const canonicalPath = locale === 'pt-pt' ? '/portfolio-colab/' : `/portfolio-col
     <meta property="og:title" content={metaTitle} />
     <meta property="og:description" content={metaDesc} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content={locale === 'pt-pt' ? 'pt_PT' : locale === 'en' ? 'en_US' : locale === 'pt-br' ? 'pt_BR' : 'fr_FR'} />
+    <meta property="og:locale" content={locale === 'pt' ? 'pt' : locale === 'en' ? 'en' : 'fr'} />
     <meta property="og:url" content={`https://van-romel.github.io${canonicalPath}`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <script is:inline>
       (function() {
-        const theme = localStorage.getItem('theme') || 'dark';
+        const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         if (theme === 'dark') {
           document.documentElement.classList.add('dark');
         } else {
           document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+    <script is:inline>
+      (function() {
+        const savedLocale = sessionStorage.getItem('preferredLocale');
+        if (!savedLocale) return;
+        
+        const currentPath = window.location.pathname;
+        const base = '/portfolio-colab';
+        
+        // Detect current locale from path
+        const localeMatch = currentPath.match(/^\/portfolio-colab\/(en|pt|fr)(\/|$)/);
+        const currentLocale = localeMatch ? localeMatch[1] : 'en';
+        
+        // If saved locale differs from current, redirect
+        if (savedLocale !== currentLocale) {
+          const hash = window.location.hash;
+          const pathWithoutLocale = currentPath.replace(/^\/portfolio-colab\/(en|pt|fr)?/, '').replace(/^\//, '') || '';
+          
+          let newPath;
+          if (savedLocale === 'en') {
+            newPath = pathWithoutLocale ? `${base}/${pathWithoutLocale}` : `${base}/`;
+          } else {
+            newPath = pathWithoutLocale ? `${base}/${savedLocale}/${pathWithoutLocale}` : `${base}/${savedLocale}/`;
+          }
+          
+          window.location.replace(newPath + hash);
         }
       })();
     </script>

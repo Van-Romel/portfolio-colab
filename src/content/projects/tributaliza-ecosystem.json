@@ -1,14 +1,12 @@
 {
   "title": {
     "en": "Tributaliza Ecosystem",
-    "pt-pt": "Ecossistema Tributaliza",
-    "pt-br": "Ecossistema Tributaliza",
+    "pt": "Ecossistema Tributaliza",
     "fr": "Écosystème Tributaliza"
   },
   "description": {
     "en": "Tech Lead of Tributaliza platform since 2018. Managing millions of NFC-e transactions with Spring ecosystem. Massive scale tax management system.",
-    "pt-pt": "Líder técnico da plataforma Tributaliza desde 2018. Gerenciando milhões de transações NFC-e com ecossistema Spring. Sistema massivo de gestão fiscal.",
-    "pt-br": "Líder técnico da plataforma Tributaliza desde 2018. Gerenciando milhões de transações NFC-e com ecossistema Spring. Sistema massivo de gestão fiscal.",
+    "pt": "Tech Lead da plataforma Tributaliza desde 2018. Gerenciando milhões de transações NFC-e com ecossistema Spring. Sistema massivo de gestão fiscal.",
     "fr": "Lead technique de la plateforme Tributaliza depuis 2018. Gestion de millions de transactions NFC-e avec écosystème Spring. Système massif de gestion fiscale."
   },
   "dev": "Rafael",

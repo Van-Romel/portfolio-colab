@@ -1,14 +1,12 @@
 {
   "title": {
     "en": "Azure CI/CD Mastercard",
-    "pt-pt": "Azure CI/CD Mastercard",
-    "pt-br": "Azure CI/CD Mastercard",
+    "pt": "Azure CI/CD Mastercard",
     "fr": "Azure CI/CD Mastercard"
   },
   "description": {
     "en": "Mastercard project: Scalable Azure DevOps pipelines for Spring/Angular applications. Automated testing, deployment, and monitoring integration.",
-    "pt-pt": "Projeto Mastercard: Pipelines Azure DevOps escaláveis para aplicações Spring/Angular. Testes automatizados, deployment e integração de monitorização.",
-    "pt-br": "Projeto Mastercard: Pipelines Azure DevOps escaláveis para aplicações Spring/Angular. Testes automatizados, deployment e integração de monitoramento.",
+    "pt": "Projeto Mastercard: Pipelines Azure DevOps escaláveis para aplicações Spring/Angular. Testes automatizados, deployment e integração de monitoramento.",
     "fr": "Projet Mastercard: Pipelines Azure DevOps évolutives pour applications Spring/Angular. Tests automatisés, déploiement et intégration de monitoring."
   },
   "dev": "Van-Romel",

@@ -1,14 +1,12 @@
 {
   "title": {
     "en": "Prometheus Uptime Monitoring",
-    "pt-pt": "Monitoramento Uptime Prometheus",
-    "pt-br": "Monitoramento Uptime Prometheus",
+    "pt": "Monitoramento Uptime Prometheus",
     "fr": "Monitoring Uptime Prometheus"
   },
   "description": {
     "en": "Complete observability stack delivering 99.9% uptime guarantee. Prometheus, Grafana, and AlertManager for proactive incident management.",
-    "pt-pt": "Stack completa de observabilidade garantindo 99.9% uptime. Prometheus, Grafana e AlertManager para gestão proativa de incidentes.",
-    "pt-br": "Stack completa de observabilidade garantindo 99.9% uptime. Prometheus, Grafana e AlertManager para gestão proativa de incidentes.",
+    "pt": "Stack completa de observabilidade garantindo 99.9% uptime. Prometheus, Grafana e AlertManager para gestão proativa de incidentes.",
     "fr": "Stack complète d'observabilité garantissant 99.9% uptime. Prometheus, Grafana et AlertManager pour gestion proactive des incidents."
   },
   "dev": "Van-Romel",

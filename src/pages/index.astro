@@ -2,9 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
 import Projects from '../components/Projects.astro';
 import About from '../components/About.astro';
-import ImageGlobal from '../components/ImageGlobal.astro';
+import GlobalVideo from '../components/GlobalVideo.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 import { t } from '../i18n/utils';
@@ -17,9 +18,10 @@ const i18n = t(locale);
   <Header locale={locale} />
   <main>
     <Hero locale={locale} />
+    <Services locale={locale} />
     <Projects locale={locale} />
     <About locale={locale} />
-    <ImageGlobal locale={locale} />
+    <GlobalVideo locale={locale} />
     <Contact locale={locale} />
   </main>
   <Footer locale={locale} />

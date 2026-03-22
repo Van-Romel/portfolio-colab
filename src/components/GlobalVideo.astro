@@ -1,0 +1,44 @@
+---
+import type { Locale } from '../i18n/utils';
+import { t } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const i18n = t(locale);
+---
+
+<section id="worldwide" class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-slate-100 to-blue-50 dark:from-slate-900 dark:to-indigo-950">
+  <div class="max-w-5xl mx-auto relative">
+    <!-- Video Background -->
+    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="auto"
+        class="w-full h-96 object-cover"
+        poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80"
+      >
+        <source src="https://videos.pexels.com/video-files/3141207/3141207-uhd_2560_1440_25fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      
+      <!-- Overlay Gradient -->
+      <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/80 via-indigo-900/40 to-transparent dark:from-indigo-900/80 dark:via-indigo-900/40 dark:to-transparent"></div>
+      
+      <!-- Text Overlay -->
+      <div class="absolute inset-0 flex flex-col items-center justify-end pb-12 text-center px-4">
+        <h3 class="text-3xl md:text-4xl font-black text-white mb-4 drop-shadow-lg">
+          {i18n.worldwide.title} <span class="text-amber-400">{i18n.worldwide.titleHighlight}</span>
+        </h3>
+        <p class="text-lg md:text-xl text-indigo-100 max-w-2xl drop-shadow-md">
+          {i18n.worldwide.subtitle}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

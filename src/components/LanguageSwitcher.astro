@@ -8,28 +8,66 @@ interface Props {
 
 const { locale: currentLocale, base = '/portfolio-colab' } = Astro.props;
 
-const homeUrl = (loc: Locale) => loc === defaultLocale ? `${base}/` : `${base}/${loc}/`;
-
 const labels: Record<Locale, string> = {
   'en': 'English',
-  'pt-pt': 'Português PT',
-  'pt-br': 'Português BR',
+  'pt': 'Português',
   'fr': 'Français',
 };
 ---
 
-<div class="flex items-center gap-1 text-sm">
-  {locales.map((loc, index) => (
-    <>
-      {index > 0 && <span class="text-slate-300 dark:text-slate-600">|</span>}
-      <a
-        href={homeUrl(loc)}
-        class={`px-1.5 py-1 rounded transition-colors ${loc === currentLocale ? 'font-semibold text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'}`}
-        hreflang={loc}
-        aria-current={loc === currentLocale ? 'page' : undefined}
-      >
-        {labels[loc]}
-      </a>
-    </>
+<select id="lang-select" class="bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-300 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700 p-2 rounded-lg transition-all text-sm font-medium cursor-pointer">
+  {locales.map((loc) => (
+    <option value={loc} selected={loc === currentLocale} class="bg-white dark:bg-slate-900">{labels[loc]}</option>
   ))}
-</div>
+</select>
+
+<script>
+  const select = document.getElementById('lang-select');
+  const base = '/portfolio-colab';
+  
+  // Save scroll position and hash before language change
+  select?.addEventListener('change', (e) => {
+    const newLocale = (e.target as HTMLSelectElement).value;
+    const currentPath = window.location.pathname;
+    const currentHash = window.location.hash;
+    const scrollPos = window.scrollY;
+    
+    // Extract current path without locale prefix
+    const pathWithoutLocale = currentPath.replace(/^\/portfolio-colab\/(en|pt|fr)?/, '').replace(/^\//, '') || '';
+    
+    // Build new URL
+    let newPath;
+    if (newLocale === 'en') {
+      newPath = pathWithoutLocale ? `${base}/${pathWithoutLocale}` : `${base}/`;
+    } else {
+      newPath = pathWithoutLocale ? `${base}/${newLocale}/${pathWithoutLocale}` : `${base}/${newLocale}/`;
+    }
+    
+    // Preserve hash
+    const newUrl = newPath + currentHash;
+    
+    // Save preference and scroll position
+    sessionStorage.setItem('preferredLocale', newLocale);
+    sessionStorage.setItem('scrollPos', scrollPos.toString());
+    sessionStorage.setItem('hash', currentHash);
+    
+    // Navigate
+    window.location.href = newUrl;
+  });
+  
+  // Restore scroll position on load
+  window.addEventListener('load', () => {
+    const savedScroll = sessionStorage.getItem('scrollPos');
+    const savedHash = sessionStorage.getItem('hash');
+    
+    if (savedScroll) {
+      window.scrollTo(0, parseInt(savedScroll));
+      sessionStorage.removeItem('scrollPos');
+    }
+    
+    if (savedHash && !window.location.hash) {
+      window.location.hash = savedHash;
+      sessionStorage.removeItem('hash');
+    }
+  });
+</script>

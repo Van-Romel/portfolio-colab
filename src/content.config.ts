@@ -2,9 +2,8 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 const translatedString = z.object({
-  'pt-pt': z.string(),
   en: z.string(),
-  'pt-br': z.string(),
+  pt: z.string(),
   fr: z.string(),
 });
 
