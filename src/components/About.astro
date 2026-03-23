@@ -1,6 +1,8 @@
 ---
 import type { Locale } from '../i18n/utils';
 import { t } from '../i18n/utils';
+import vanromelPhoto from '../assets/vanromel.jpg';
+import rafaelPhoto from '../assets/rafael.png';
 
 interface Props {
   locale: Locale;
@@ -13,7 +15,8 @@ const partners = [
   {
     linkedin: 'https://www.linkedin.com/in/van-romel-neto/',
     gradient: 'from-indigo-500 to-blue-600',
-    initials: 'VN',
+    photo: vanromelPhoto,
+    alt: 'Van-Romel Alves Sena Neto',
     flag: '🇵🇹',
     location: 'Portugal',
     skills: ['Java', 'Kotlin', 'Spring Boot', 'Kubernetes', 'Azure', 'Docker', 'Terraform', 'PostgreSQL', 'CI/CD'],
@@ -21,7 +24,8 @@ const partners = [
   {
     linkedin: 'https://www.linkedin.com/in/rafael-carvalho-gomes-700752101/',
     gradient: 'from-emerald-500 to-teal-600',
-    initials: 'RG',
+    photo: rafaelPhoto,
+    alt: 'Rafael Carvalho Gomes',
     flag: '🇧🇷',
     location: 'Brazil',
     skills: ['React', 'Angular', 'TypeScript', 'Node.js', 'Spring Boot', 'Kotlin', 'OutSystems', 'RPA'],
@@ -59,9 +63,16 @@ const partners = [
           <!-- Header row -->
           <div class="flex items-center gap-4 mb-6">
             <a href={partner.linkedin} target="_blank" rel="noopener noreferrer"
-               class={`relative h-16 w-16 rounded-2xl bg-gradient-to-br ${partner.gradient} flex items-center justify-center text-white font-black text-lg shrink-0 shadow-lg hover:scale-105 transition-transform duration-300`}>
-              {partner.initials}
-              <span class="absolute -bottom-1 -right-1 text-sm">{partner.flag}</span>
+               class="relative h-16 w-16 rounded-2xl shrink-0 shadow-lg hover:scale-105 transition-transform duration-300 overflow-hidden block">
+              <img
+                src={partner.photo.src}
+                alt={partner.alt}
+                width="64"
+                height="64"
+                class="h-full w-full object-cover object-top"
+                loading="lazy"
+              />
+              <span class="absolute -bottom-1 -right-1 text-sm leading-none">{partner.flag}</span>
             </a>
             <div class="min-w-0">
               <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">
