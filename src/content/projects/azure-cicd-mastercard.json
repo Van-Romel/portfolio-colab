@@ -11,7 +11,7 @@
   },
   "dev": "Van-Romel",
   "techStack": ["Azure DevOps", "Spring Boot", "Angular", "Terraform", "Docker", "SonarQube", "Jest"],
-  "githubUrl": "https://github.com/van-romel",
-  "demoUrl": "https://mastercard.com",
+  "githubUrl": "https://github.com/Van-Romel",
+  "demoUrl": "https://developer.mastercard.com/product/digital-identity/",
   "order": 4
 }

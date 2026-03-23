@@ -11,7 +11,7 @@
   },
   "dev": "Van-Romel",
   "techStack": ["Spring Boot", "Angular", "PostgreSQL", "Redis", "OAuth2", "Docker"],
-  "githubUrl": "https://github.com/van-romel",
-  "demoUrl": "https://natixis.com",
+  "githubUrl": "https://github.com/Van-Romel",
+  "demoUrl": "https://www.natixis.com/natixis/jcms/tki_5/en/corporate-and-investment-banking",
   "order": 2
 }

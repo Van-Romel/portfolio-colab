@@ -11,7 +11,7 @@
   },
   "dev": "Van-Romel",
   "techStack": ["Kotlin", "Java", "Kubernetes", "Docker", "Microservices", "Kafka"],
-  "githubUrl": "https://github.com/van-romel",
-  "demoUrl": "https://www.audi.com",
+  "githubUrl": "https://github.com/Van-Romel",
+  "demoUrl": "https://www.audi.com/en/innovation/audi-connect.html",
   "order": 1
 }

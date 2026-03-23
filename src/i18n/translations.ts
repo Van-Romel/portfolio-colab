@@ -94,7 +94,7 @@ const pt = {
   hero: {
     badge: 'Disponível para novos projetos',
     title1: 'SC Tech Labs',
-    title2: 'Engineering Solutions Worldwide',
+    title2: 'Soluções de Engenharia no Mundo',
     subtitle: 'Transformamos problemas complexos em software de nível enterprise. Engenheiros com experiência comprovada na Volkswagen, Natixis, Mastercard e mais.',
     cta1: 'Ver Projetos',
     cta2: 'Contato',
@@ -173,7 +173,7 @@ const fr = {
   hero: {
     badge: 'Disponible pour de nouveaux projets',
     title1: 'SC Tech Labs',
-    title2: 'Engineering Solutions Worldwide',
+    title2: "Solutions d'Ingénierie dans le Monde",
     subtitle: "Nous transformons des problèmes complexes en logiciels de niveau enterprise. Ingénieurs expérimentés chez Volkswagen, Natixis, Mastercard et plus.",
     cta1: 'Voir Projets',
     cta2: 'Contact',
