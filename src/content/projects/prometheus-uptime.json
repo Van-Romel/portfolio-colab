@@ -13,5 +13,6 @@
   "techStack": ["Prometheus", "Grafana", "AlertManager", "Loki", "Jaeger", "Kubernetes", "Thanos"],
   "githubUrl": "https://github.com/van-romel",
   "demoUrl": "https://demo.sctechlabs.com",
-  "order": 5
+  "order": 5,
+  "visible": false
 }

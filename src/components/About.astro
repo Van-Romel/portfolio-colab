@@ -14,25 +14,34 @@ const partners = [
     linkedin: 'https://www.linkedin.com/in/van-romel-neto/',
     gradient: 'from-indigo-500 to-blue-600',
     initials: 'VN',
+    flag: '🇵🇹',
+    location: 'Portugal',
+    skills: ['Java', 'Kotlin', 'Spring Boot', 'Kubernetes', 'Azure', 'Docker', 'Terraform', 'PostgreSQL', 'CI/CD'],
   },
   {
     linkedin: 'https://www.linkedin.com/in/rafael-carvalho-gomes-700752101/',
     gradient: 'from-emerald-500 to-teal-600',
     initials: 'RG',
+    flag: '🇧🇷',
+    location: 'Brazil',
+    skills: ['React', 'Angular', 'TypeScript', 'Node.js', 'Spring Boot', 'Kotlin', 'OutSystems', 'RPA'],
   },
 ];
 ---
 
 <section id="sobre" class="relative py-24 sm:py-32 bg-slate-50/50 dark:bg-slate-900/20">
+  <!-- Background decorations -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute top-1/4 right-0 h-[300px] w-[300px] rounded-full bg-indigo-500/5 dark:bg-indigo-500/5 blur-[80px]"></div>
-    <div class="absolute bottom-1/4 left-0 h-[250px] w-[250px] rounded-full bg-blue-500/5 dark:bg-blue-500/5 blur-[80px]"></div>
+    <div class="absolute top-1/4 right-0 h-[400px] w-[400px] rounded-full bg-indigo-500/5 dark:bg-indigo-500/8 blur-[100px]"></div>
+    <div class="absolute bottom-1/4 left-0 h-[300px] w-[300px] rounded-full bg-blue-500/5 dark:bg-blue-500/8 blur-[80px]"></div>
   </div>
 
   <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <!-- Section header -->
     <div class="text-center animate-on-scroll">
       <p class="text-sm font-semibold uppercase tracking-widest text-indigo-500 dark:text-indigo-400">{i18n.about.label}</p>
-      <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
+      <h2 class="mt-3 text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">
         {i18n.about.title} <span class="bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">{i18n.about.titleHighlight}</span>
       </h2>
       <p class="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
@@ -40,78 +49,89 @@ const partners = [
       </p>
     </div>
 
-    <div class="mt-16 grid gap-8 md:grid-cols-2">
-      <div class="animate-on-scroll stagger-1 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-900/50 p-8 hover:border-indigo-500/30 transition-all duration-500 hover:shadow-xl hover:shadow-indigo-500/5">
-        <div class="flex items-center gap-4 mb-6">
-          <a href={partners[0].linkedin} target="_blank" rel="noopener noreferrer" class={`h-16 w-16 rounded-2xl bg-gradient-to-br ${partners[0].gradient} flex items-center justify-center text-white font-bold text-lg shrink-0 shadow-lg hover:scale-105 transition-transform`}>
-            {partners[0].initials}
-          </a>
-          <div>
-            <h3 class="text-xl font-semibold text-slate-900 dark:text-white">
-              <a href={partners[0].linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">
-                {i18n.about.dev1Name}
-              </a>
-            </h3>
-            <p class="text-sm text-indigo-600 dark:text-indigo-400 font-medium">{i18n.about.dev1Role}</p>
+    <!-- Partner cards -->
+    <div class="mt-14 grid gap-6 md:grid-cols-2">
+      {partners.map((partner, idx) => (
+        <div class={`animate-on-scroll stagger-${idx + 1} group relative rounded-2xl border border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-900/50 p-8 hover:border-indigo-500/40 dark:hover:border-indigo-500/40 transition-all duration-500 hover:shadow-2xl hover:shadow-indigo-500/8 overflow-hidden`}>
+          <!-- Subtle gradient top bar -->
+          <div class={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${partner.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+
+          <!-- Header row -->
+          <div class="flex items-center gap-4 mb-6">
+            <a href={partner.linkedin} target="_blank" rel="noopener noreferrer"
+               class={`relative h-16 w-16 rounded-2xl bg-gradient-to-br ${partner.gradient} flex items-center justify-center text-white font-black text-lg shrink-0 shadow-lg hover:scale-105 transition-transform duration-300`}>
+              {partner.initials}
+              <span class="absolute -bottom-1 -right-1 text-sm">{partner.flag}</span>
+            </a>
+            <div class="min-w-0">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">
+                <a href={partner.linkedin} target="_blank" rel="noopener noreferrer"
+                   class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">
+                  {idx === 0 ? i18n.about.dev1Name : i18n.about.dev2Name}
+                </a>
+              </h3>
+              <p class="text-sm text-indigo-600 dark:text-indigo-400 font-semibold mt-0.5">
+                {idx === 0 ? i18n.about.dev1Role : i18n.about.dev2Role}
+              </p>
+              <p class="text-xs text-slate-400 dark:text-slate-500 mt-0.5">{partner.location}</p>
+            </div>
+          </div>
+
+          <!-- Bio -->
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 text-sm">
+            {idx === 0 ? i18n.about.dev1Desc : i18n.about.dev2Desc}
+          </p>
+
+          <!-- Skills -->
+          <div class="flex flex-wrap gap-1.5">
+            {partner.skills.map((skill: string) => (
+              <span class="inline-flex items-center rounded-lg bg-slate-100 dark:bg-slate-800/80 px-2.5 py-1 text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-default">
+                {skill}
+              </span>
+            ))}
           </div>
         </div>
+      ))}
+    </div>
 
-        <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-          {i18n.about.dev1Desc}
-        </p>
-
-        <div class="flex flex-wrap gap-2">
-          {['Java', 'Kotlin', 'Spring Boot', 'Kubernetes', 'Azure', 'Docker', 'Terraform', 'PostgreSQL', 'CI/CD'].map((skill: string) => (
-            <span class="inline-flex items-center rounded-lg bg-slate-100 dark:bg-slate-800/80 px-3 py-1 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-default">
-              {skill}
-            </span>
-          ))}
+    <!-- On-demand team banner -->
+    <div class="mt-8 animate-on-scroll stagger-3">
+      <div class="rounded-2xl border border-indigo-200/50 dark:border-indigo-800/40 bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-950/30 dark:to-blue-950/30 p-6 flex flex-col sm:flex-row items-center gap-4">
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/25">
+          <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+          </svg>
         </div>
-      </div>
-
-      <div class="animate-on-scroll stagger-2 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-900/50 p-8 hover:border-indigo-500/30 transition-all duration-500 hover:shadow-xl hover:shadow-indigo-500/5">
-        <div class="flex items-center gap-4 mb-6">
-          <a href={partners[1].linkedin} target="_blank" rel="noopener noreferrer" class={`h-16 w-16 rounded-2xl bg-gradient-to-br ${partners[1].gradient} flex items-center justify-center text-white font-bold text-lg shrink-0 shadow-lg hover:scale-105 transition-transform`}>
-            {partners[1].initials}
-          </a>
-          <div>
-            <h3 class="text-xl font-semibold text-slate-900 dark:text-white">
-              <a href={partners[1].linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">
-                {i18n.about.dev2Name}
-              </a>
-            </h3>
-            <p class="text-sm text-indigo-600 dark:text-indigo-400 font-medium">{i18n.about.dev2Role}</p>
-          </div>
-        </div>
-
-        <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-          {i18n.about.dev2Desc}
-        </p>
-
-        <div class="flex flex-wrap gap-2">
-          {['React', 'Angular', 'TypeScript', 'Node.js', 'Spring Boot', 'JavaScript', 'OutSystems', 'RPA'].map((skill: string) => (
-            <span class="inline-flex items-center rounded-lg bg-slate-100 dark:bg-slate-800/80 px-3 py-1 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-default">
-              {skill}
-            </span>
-          ))}
+        <div>
+          <p class="font-semibold text-slate-900 dark:text-white text-sm">
+            {locale === 'pt' ? 'Equipe sob demanda disponível' : locale === 'fr' ? 'Équipe à la demande disponible' : 'On-demand team available'}
+          </p>
+          <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+            {locale === 'pt'
+              ? 'Além dos fundadores, contamos com desenvolvedores especializados disponíveis para projetos de maior escala.'
+              : locale === 'fr'
+              ? "Au-delà des fondateurs, nous disposons de développeurs spécialisés disponibles pour des projets à plus grande échelle."
+              : 'Beyond the founders, we have specialized developers available on-demand for larger scale projects.'}
+          </p>
         </div>
       </div>
     </div>
 
-    <div class="mt-16 animate-on-scroll stagger-3">
+    <!-- Stats row -->
+    <div class="mt-8 animate-on-scroll stagger-4">
       <div class="rounded-2xl border border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-900/50 p-8 sm:p-10">
         <div class="grid gap-8 sm:grid-cols-3 text-center">
           <div>
-            <p class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">+50</p>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">{i18n.about.statsProjects}</p>
+            <p class="text-4xl sm:text-5xl font-black bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">+50</p>
+            <p class="mt-2 text-sm font-medium text-slate-600 dark:text-slate-400">{i18n.about.statsProjects}</p>
+          </div>
+          <div class="sm:border-x sm:border-slate-200 dark:sm:border-slate-800">
+            <p class="text-4xl sm:text-5xl font-black bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">+10</p>
+            <p class="mt-2 text-sm font-medium text-slate-600 dark:text-slate-400">{i18n.about.statsExperience}</p>
           </div>
           <div>
-            <p class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">+8</p>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">{i18n.about.statsExperience}</p>
-          </div>
-          <div>
-            <p class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">99.9%</p>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">{i18n.about.statsUptime}</p>
+            <p class="text-4xl sm:text-5xl font-black bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">99.9%</p>
+            <p class="mt-2 text-sm font-medium text-slate-600 dark:text-slate-400">{i18n.about.statsUptime}</p>
           </div>
         </div>
       </div>
