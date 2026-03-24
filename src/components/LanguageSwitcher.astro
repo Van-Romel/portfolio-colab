@@ -6,7 +6,7 @@ interface Props {
   base?: string;
 }
 
-const { locale: currentLocale, base = '/portfolio-colab' } = Astro.props;
+const { locale: currentLocale, base = '' } = Astro.props;
 
 const labels: Record<Locale, string> = {
   'en': 'English',
@@ -23,7 +23,7 @@ const labels: Record<Locale, string> = {
 
 <script>
   const select = document.getElementById('lang-select');
-  const base = '/portfolio-colab';
+  const base = '';
   
   // Save scroll position and hash before language change
   select?.addEventListener('change', (e) => {
@@ -33,7 +33,7 @@ const labels: Record<Locale, string> = {
     const scrollPos = window.scrollY;
     
     // Extract current path without locale prefix
-    const pathWithoutLocale = currentPath.replace(/^\/portfolio-colab\/(en|pt|fr)?/, '').replace(/^\//, '') || '';
+    const pathWithoutLocale = currentPath.replace(/^\/(en|pt|fr)?/, '').replace(/^\//, '') || '';
     
     // Build new URL
     let newPath;

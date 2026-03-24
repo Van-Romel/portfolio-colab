@@ -10,7 +10,7 @@ interface Props {
 const { locale: currentLocale } = Astro.props;
 const i18n = t(currentLocale);
 
-const base = '/portfolio-colab';
+const base = '';
 
 const homeUrl = currentLocale === 'en' ? `${base}/` : `${base}/${currentLocale}/`;
 const projectsUrl = currentLocale === 'en' ? `${base}/projetos/` : `${base}/${currentLocale}/projetos/`;
