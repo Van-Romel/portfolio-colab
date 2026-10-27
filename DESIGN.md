@@ -1,91 +1,86 @@
-# DESIGN.md — SC TechLabs Engineering & Architecture Standard
+# DESIGN.md — SC TechLabs Design System & UI Specification
 
-> **Standard Version:** 2.0 (Anti-AI-Slop / High-Craft Engineering)  
-> **Target Audience:** CTOs, VPs of Engineering, Enterprise Architects, Technical Founders  
-> **Brand Essence:** Boutique Systems Architecture, Distributed Computing, High-Throughput Cloud & Edge Infrastructure.
-
----
-
-## 1. Core Philosophy: The Anti-AI-Slop Manifesto
-
-Most AI-generated websites share telltale visual defects that instantly signal "cheap template" to technical buyers. SC TechLabs adheres to strict design constraints to ensure every interface looks like bespoke, human-crafted engineering:
-
-| AI Template Trope (FORBIDDEN) | SC TechLabs Standard (MANDATORY) |
-| :--- | :--- |
-| **Floating Neon Blur Blobs** (`blur-[120px]` purple orbs) | **Architectural Hairline Grid** (`border-slate-800/80`, subtle 1px guide lines) |
-| **Rainbow / Gradient Text** (`bg-clip-text text-transparent`) | **High-Contrast Stark Typography** (`#F8FAFC` slate-50 display text) |
-| **Oversized Bubble Pills** (`rounded-full` everywhere) | **Precise Micro-Radii** (`rounded-md` / `rounded-lg`, 4px–8px corners) |
-| **Symmetrical 3-Card Cookie-Cutter Grids** with icon circles | **Asymmetric Bento Dossier** with real metrics, system topology & throughput |
-| **Unmotivated Glowing Borders** on every hover | **Subtle Depth & Monochromatic Contrast** with crisp hairline state transitions |
-| **Generic Marketing Buzzwords** ("Supercharge with AI") | **Grounded Engineering Deliverables** ("1M+ Events/Day", "JPA Session Eviction", "Sub-50ms Latency") |
+> **Documentation Standard:** SC TechLabs Official Design System  
+> **Brand Identity:** Sena & Carvalho Tech Labs (SC TechLabs)  
+> **Target Audience:** Enterprise Clients, CTOs, Technical Leadership & Strategic Partners  
+> **Visual Philosophy:** Modern, airy, high-craft software engineering studio with dual Light/Dark theme support, smooth fluid animations, and strict multilingual parity (EN, PT, FR).
 
 ---
 
-## 2. Design Tokens & Color Palette
+## 1. Visual Philosophy & Identity
 
-The color system retains SC TechLabs' core identity (Slate, Deep Indigo, Cyan, Emerald) while using colors as **functional data indicators** rather than decorative noise:
-
-```yaml
-tokens:
-  surfaces:
-    canvas_dark: "#080C14"        # Deep Obsidian Canvas (grounded, zero washed-out gray)
-    surface_base: "#0D1321"       # Primary Card / Panel Background
-    surface_elevated: "#131C31"   # Elevated Layer / Hover State
-    surface_highlight: "#1A2644"  # Active Selection / Header Bar
-    border_hairline: "rgba(148, 163, 184, 0.12)" # 1px crisp structural border
-    border_accent: "rgba(99, 102, 241, 0.4)"     # Targeted focus border
-
-  typography_colors:
-    primary_ink: "#F8FAFC"        # Slate-50 — Stark white, primary titles & headings
-    secondary_ink: "#94A3B8"      # Slate-400 — Technical descriptions, balanced contrast
-    muted_ink: "#64748B"          # Slate-500 — Metadata, footnotes, labels
-    code_ink: "#E2E8F0"           # Slate-200 — Monospace technical specifications
-
-  operational_accents:
-    brand_indigo: "#6366F1"       # Primary Interactive Accent & Terminal Prompt
-    system_emerald: "#10B981"     # Verified Production SLAs, Online Health, Real Metrics
-    edge_cyan: "#38BDF8"          # Cloudflare Edge, Distributed Messaging, WebSockets
-    warning_amber: "#F59E0B"      # Audit Governance, Incident Recovery Indicators
-```
+SC TechLabs presents a world-class technology consulting firm. The design balances visual appeal with enterprise credibility:
+- **Clean & Airy:** Generous whitespace, refined padding, and breathing room between sections.
+- **Modern Depth:** Subtle floating ambient orbs with soft keyframe animations (`float-orb`), delicate geometric grid overlays, and translucent glassmorphism (`backdrop-blur-md` / `backdrop-blur-xl`).
+- **Grounded Enterprise Trust:** Cards and typography feel authoritative, crisp, and high-performance, avoiding cramped retro grids or dark monochrome terminal boxes.
+- **No Internal Leaks:** The public website never displays internal documentation terms, AI slop references, or internal filenames. It speaks directly about SC TechLabs' architectural services, real cases, and team.
 
 ---
 
-## 3. Typography & Information Hierarchy
+## 2. Color System & Dual Theme Tokens
 
-* **Display Headings (`font-sans` / Inter or Geist):**
-  * `font-weight: 700` or `800`
-  * `letter-spacing: -0.03em` (tight tracking to give architectural authority)
-  * Sentence case or clean title case — never all-caps for entire paragraphs
-* **Monospace System Accents (`font-mono`):**
-  * Used for: system versions, architecture tags, benchmark numbers, terminal prompts
-  * Syntax: `[ ARCHITECTURE // HIGH_THROUGHPUT ]`, `[ SLA: 99.99% VERIFIED ]`, `[ TIER: EDGE_KV ]`
-  * Sizing: `text-[11px]` or `text-xs` with `tracking-wider` or `tracking-widest`
-* **Body Copy:**
-  * Clean, relaxed line height (`leading-relaxed`, `1.65`)
-  * Max reading width: `max-w-2xl` to `max-w-3xl`
+The site features native **Dark Mode** and **Light Mode** toggled via the header controls and persisted in `localStorage`.
+
+### 2.1 Surfaces & Canvas
+| Token | Light Theme | Dark Theme |
+| :--- | :--- | :--- |
+| **Canvas Background** | `#F8FAFC` (Slate-50) / White | `#020617` (Slate-950) / `#0F172A` (Slate-900) |
+| **Card Surface** | `bg-white/80 backdrop-blur-md` | `bg-slate-800/80 backdrop-blur-md` |
+| **Elevated Surface** | `bg-white shadow-xl` | `bg-slate-800 shadow-2xl` |
+| **Hairline Border** | `border-slate-200/60` | `border-slate-700/60` |
+| **Active Border** | `hover:border-indigo-500/50` | `hover:border-indigo-400/50` |
+
+### 2.2 Brand & Functional Accents
+- **Brand Primary Gradient:** `from-indigo-600 to-blue-600` (Light) / `from-indigo-400 via-blue-400 to-cyan-300` (Dark)
+- **Interactive Buttons:** `bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-indigo-500/25`
+- **Pill Badges:** `bg-indigo-50 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-300`
+- **Ambient Glow Orbs:**
+  - Light: `bg-indigo-200/50 blur-[100px]`, `bg-blue-200/40 blur-[80px]`
+  - Dark: `bg-indigo-600/20 blur-[120px]`, `bg-blue-600/15 blur-[100px]`
 
 ---
 
-## 4. Component Rules
+## 3. Typography & Hierarchy
 
-### 4.1. Navigation & HUD Header
-* Fixed hairline header with subtle backdrop blur (`bg-[#080C14]/85 backdrop-blur-md border-b border-slate-850`).
-* Includes **System Status Badge** with live pulsing green dot: `[ ● ALL SYSTEMS OPERATIONAL ]`.
-* Minimalist links with monospace index numbers: `01. Cases`, `02. Architecture`, `03. Team`, `04. Contact`.
+- **Font Family:** Modern Sans (`system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`) with Monospace accents (`ui-monospace, SFMono-Regular, Menlo, monospace`) for code tags and technical metrics.
+- **Headings:**
+  - Hero Display: `text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight`
+  - Section Title: `text-3xl sm:text-4xl font-bold`
+  - Card Title: `text-lg sm:text-xl font-bold`
+- **Body & Captions:**
+  - Subtitle: `text-lg sm:text-xl text-slate-600 dark:text-slate-400 leading-relaxed`
+  - Card Body: `text-sm text-slate-600 dark:text-slate-400 leading-relaxed`
+  - Tech Pills: `text-xs font-medium px-2.5 py-1 rounded-lg`
 
-### 4.2. Hero Section
-* **Zero glowing rainbow text.** Headings are stark `#F8FAFC` with deliberate emphasis words in crisp electric indigo or white.
-* **Operational Metrics Bar:** Integrated directly into the hero flow (e.g. `1M+` Daily Events, `<50ms` Edge Latency, `10+` Years Enterprise).
-* **Terminal HUD / Architecture Inspector:** An authentic live component showing real architectural stacks (Java 21, Kotlin, Spring Data JDBC, Rust Tauri 2, Cloudflare Edge) rather than decorative mock windows with useless buttons.
+---
 
-### 4.3. Bento Case Studies Grid
-* High information density.
-* Every project card must showcase:
-  1. **Enterprise Client / Scope Badge** (`VOLKSWAGEN GROUP`, `MASTERCRED`, `FINANCIAL ENGINE`)
-  2. **Core Architectural Deliverable** (The engineering challenge solved)
-  3. **Verified Metric / Outcome**
-  4. **Monospace Stack Pills** (`[ JAVA 21 ]`, `[ KOTLIN ]`, `[ POSTGRESQL ]`, `[ EDGE KV ]`)
+## 4. Responsive Layout & 4K Optimization
 
-### 4.4. Call-to-Action & Contact
-* Direct technical intake: schedule architecture review, direct engineering inquiry.
-* Direct timezone indicators: `UTC+0 (Lisbon / London)`, `UTC+1 (Berlin / Frankfurt)`, `UTC-3 (São Paulo)`.
+The layout is built mobile-first and fluidly adapts across all viewport ranges:
+- **Mobile (<640px):** Single-column layout, compact 14px header with mobile menu, touch-friendly tap targets (minimum 44x44px).
+- **Tablet (640px–1024px):** 2-column project and team cards, optimized container gutters (`px-6`).
+- **Desktop (1024px–1536px):** Full multi-column grid (`grid-cols-3`), floating decoration cards, rich navigation bar with language and theme switchers.
+- **Ultra-Wide & 4K (>1536px):** Constrained `max-w-7xl` centered container preventing content stretching, high-DPI asset rendering, and balanced vertical rhythm.
+
+---
+
+## 5. Multilingual Structure (i18n)
+
+Full 3-language parity across all routes:
+1. **English (`en`):** Default root (`/`) and `/en/projetos/`
+2. **Portuguese (`pt`):** `/pt/` and `/pt/projetos/`
+3. **French (`fr`):** `/fr/` and `/fr/projetos/`
+
+All strings are strictly centralized in `src/i18n/translations.ts`. Whenever new sections or cards are added, all three language keys must be populated.
+
+---
+
+## 6. Hyperlink & Identity Integrity Rules
+
+1. **Only Real, Verified Links:**
+   - Link buttons must only be rendered when a valid, active destination exists (`href` is not `#`, not empty, not a placeholder).
+   - Team members with verified LinkedIn profiles (e.g. Van-Romel, Rafael, Fabrício) have active link buttons.
+   - If a member or asset does not yet have a profile link, hide the button gracefully or omit the anchor tag.
+2. **No Fake Repository Links:**
+   - Client and proprietary enterprise projects (Audi Connect, Mastercard, Natixis KYC, Tributaliza, JiuMind) must NOT display generic or fake GitHub repo buttons.
+   - Project cards only render the "Visit Website" / "Acessar Projeto" button when a verified live product/client URL exists (`demoUrl`).
