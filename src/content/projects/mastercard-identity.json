@@ -1,0 +1,26 @@
+{
+  "title": {
+    "en": "Mastercard Digital Identity Services",
+    "pt": "Mastercard Digital Identity Services",
+    "fr": "Mastercard Digital Identity Services"
+  },
+  "description": {
+    "en": "Enterprise reference applications in Spring Framework and Angular for the Mastercard ID Services developer portal, technical release governance, LLD modeling, and SAFe Agile delivery.",
+    "pt": "Aplicações de referência corporativas em Spring Framework e Angular para o developer portal do Mastercard ID Services, governança técnica de releases, LLD e metodologia ágil SAFe.",
+    "fr": "Applications de référence d'entreprise en Spring Framework et Angular pour le portail développeur de Mastercard ID Services et gouvernance des livraisons techniques sous SAFe."
+  },
+  "dev": "Van-Romel",
+  "techStack": [
+    "Java",
+    "Spring Framework",
+    "Angular",
+    "CosmosDB",
+    "Azure",
+    "Jenkins CI/CD",
+    "SAFe Agile"
+  ],
+  "githubUrl": "https://github.com/Van-Romel",
+  "demoUrl": "https://developer.mastercard.com/product/id-digital-identity-services",
+  "order": 7,
+  "visible": true
+}

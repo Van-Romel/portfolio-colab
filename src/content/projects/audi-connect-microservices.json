@@ -1,17 +1,26 @@
 {
   "title": {
-    "en": "Audi Connect Microservices",
-    "pt": "Audi Connect Microservices",
-    "fr": "Audi Connect Microservices"
+    "en": "Audi Connect Plug & Play",
+    "pt": "Audi Connect Plug & Play",
+    "fr": "Audi Connect Plug & Play"
   },
   "description": {
-    "en": "Volkswagen project: Kotlin/Java microservices for Audi Connect platform. Kubernetes orchestration with high availability across multiple regions.",
-    "pt": "Projeto Volkswagen: microservices Kotlin/Java para plataforma Audi Connect. Orquestração Kubernetes com alta disponibilidade multi-região.",
-    "fr": "Projet Volkswagen: microservices Kotlin/Java pour plateforme Audi Connect. Orchestration Kubernetes haute disponibilité multi-région."
+    "en": "Connected vehicle telemetry platform for Volkswagen Group pan-Europe. Microservices in Kotlin and Java 21 on Azure / Kubernetes (AKS), batch processing of 1M+ vehicle events, and secure data exchange via OpenDXM GlobalX.",
+    "pt": "Plataforma de telemetria veicular conectada para o Volkswagen Group na Europa. Microsserviços em Kotlin e Java 21 sobre Azure / Kubernetes (AKS), drenagem de 1M+ eventos e intercâmbio de dados com OpenDXM GlobalX.",
+    "fr": "Plateforme de télémétrie de véhicules connectés pour Volkswagen Group en Europe. Microservices en Kotlin et Java 21 sur Azure / Kubernetes (AKS) et transfert sécurisé OpenDXM GlobalX."
   },
   "dev": "Van-Romel",
-  "techStack": ["Kotlin", "Java", "Kubernetes", "Docker", "Microservices", "Kafka"],
+  "techStack": [
+    "Java 21",
+    "Kotlin",
+    "Spring Boot",
+    "Azure AKS",
+    "PostgreSQL",
+    "OpenDXM GlobalX",
+    "Docker"
+  ],
   "githubUrl": "https://github.com/Van-Romel",
-  "demoUrl": "https://www.audi.com/en/innovation/audi-connect.html",
-  "order": 1
+  "demoUrl": "https://www.audi.co.uk/en/owners/audi-connect/plug-and-play/",
+  "order": 1,
+  "visible": true
 }

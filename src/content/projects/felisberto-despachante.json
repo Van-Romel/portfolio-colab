@@ -1,0 +1,24 @@
+{
+  "title": {
+    "en": "Felisberto Despachante & Admin",
+    "pt": "Felisberto Despachante & Admin",
+    "fr": "Felisberto Despachante & Admin"
+  },
+  "description": {
+    "en": "Edge-native serverless web portal and administrative backoffice deployed on Cloudflare Pages and Edge KV, protected by Cloudflare Zero Trust (Access) perimeter security.",
+    "pt": "Portal e painel administrativo edge-native serverless hospedados no Cloudflare Pages e Edge KV, blindados por segurança perimetral Cloudflare Zero Trust Access.",
+    "fr": "Portail et panneau d'administration edge-native serverless sur Cloudflare Pages et Edge KV, protégés par Cloudflare Zero Trust Access."
+  },
+  "dev": "Van-Romel",
+  "techStack": [
+    "Cloudflare Pages",
+    "Cloudflare KV",
+    "Zero Trust Access",
+    "TypeScript",
+    "Tailwind CSS"
+  ],
+  "githubUrl": "https://github.com/Van-Romel",
+  "demoUrl": "https://felisbertodespachante.com.br",
+  "order": 4,
+  "visible": true
+}

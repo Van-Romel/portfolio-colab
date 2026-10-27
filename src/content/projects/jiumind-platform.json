@@ -1,0 +1,26 @@
+{
+  "title": {
+    "en": "JiuMind BJJ Platform",
+    "pt": "Plataforma JiuMind BJJ",
+    "fr": "Plateforme JiuMind BJJ"
+  },
+  "description": {
+    "en": "High-performance Brazilian Jiu-Jitsu athlete catalog and video streaming platform. Engineered with a sub-50ms latency 3-tier caching topology (Caffeine in-memory, Cloudflare KV at edge, and PostgreSQL) on K3s Kubernetes.",
+    "pt": "Plataforma de alta performance para catálogo de atletas e vídeos de Jiu-Jitsu Brasileiro. Arquitetura com cache de 3 camadas (Caffeine em memória, Cloudflare KV no Edge e PostgreSQL) garantindo latência <50ms em K3s.",
+    "fr": "Plateforme de haute performance pour athlètes et vidéos de Jiu-Jitsu Brésilien. Architecture avec cache à 3 niveaux (Caffeine, Cloudflare KV et PostgreSQL) garantissant une latence <50ms sur K3s."
+  },
+  "dev": "Van-Romel",
+  "techStack": [
+    "Java 21",
+    "Spring Boot",
+    "Caffeine",
+    "Cloudflare KV",
+    "PostgreSQL",
+    "Kubernetes K3s",
+    "Docker"
+  ],
+  "githubUrl": "https://github.com/Van-Romel",
+  "demoUrl": "https://jiumind.sctechlabs.com",
+  "order": 3,
+  "visible": true
+}

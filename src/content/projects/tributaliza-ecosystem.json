@@ -1,17 +1,26 @@
 {
   "title": {
-    "en": "Tributaliza Ecosystem",
-    "pt": "Ecossistema Tributaliza",
-    "fr": "Écosystème Tributaliza"
+    "en": "Tributaliza Fiscal Ecosystem",
+    "pt": "Ecossistema Fiscal Tributaliza",
+    "fr": "Écosystème Fiscal Tributaliza"
   },
   "description": {
-    "en": "Tech Lead of Tributaliza platform since 2018. Managing millions of NFC-e transactions with Spring ecosystem. Massive scale tax management system.",
-    "pt": "Tech Lead da plataforma Tributaliza desde 2018. Gerenciando milhões de transações NFC-e com ecossistema Spring. Sistema massivo de gestão fiscal.",
-    "fr": "Lead technique de la plateforme Tributaliza depuis 2018. Gestion de millions de transactions NFC-e avec écosystème Spring. Système massif de gestion fiscale."
+    "en": "Enterprise fiscal intelligence and ERP bridge platform processing millions of electronic tax documents (NFC-e / NF-e) daily. Core backend with Spring Data JDBC, Tauri 2 (Rust) + Apache Pulsar desktop-to-cloud bridge, and disk-virtualized JasperReports.",
+    "pt": "Plataforma de inteligência fiscal e ponte de ERP corporativo processando milhões de documentos eletrônicos (NFC-e / NF-e) por dia. Backend em Spring Data JDBC, ponte desktop-nuvem em Tauri 2 (Rust) + Apache Pulsar e relatórios virtualizados em JasperReports.",
+    "fr": "Plateforme d'intelligence fiscale et passerelle ERP d'entreprise traitant des millions de documents électroniques par jour. Spring Data JDBC, passerelle desktop-cloud Tauri 2 (Rust) + Apache Pulsar et JasperReports."
   },
-  "dev": "Rafael",
-  "techStack": ["Spring Boot", "Spring Cloud", "PostgreSQL", "RabbitMQ", "Redis", "Docker", "AWS"],
+  "dev": "Rafael & Van-Romel",
+  "techStack": [
+    "Java 21",
+    "Spring Boot",
+    "Spring Data JDBC",
+    "PostgreSQL",
+    "Tauri 2 (Rust)",
+    "Apache Pulsar",
+    "Docker"
+  ],
   "githubUrl": "https://github.com/rafaelcgomes",
   "demoUrl": "https://tributaliza.com.br",
-  "order": 3
+  "order": 2,
+  "visible": true
 }

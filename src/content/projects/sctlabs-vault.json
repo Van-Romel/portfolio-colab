@@ -1,0 +1,24 @@
+{
+  "title": {
+    "en": "SCTechLabs Vault",
+    "pt": "SCTechLabs Vault",
+    "fr": "SCTechLabs Vault"
+  },
+  "description": {
+    "en": "Zero-knowledge enterprise secrets and credentials vault with client-side military-grade AES-256-GCM encryption, synchronized via Cloudflare Workers and secure multi-language SDKs.",
+    "pt": "Cofre corporativo de credenciais Zero-Knowledge com criptografia militar client-side AES-256-GCM, sincronizado via Cloudflare Workers com SDKs em Python e Node.js.",
+    "fr": "Coffre-fort d'entreprise Zero-Knowledge avec chiffrement client AES-256-GCM, synchronisé via Cloudflare Workers et SDKs sécurisés."
+  },
+  "dev": "Van-Romel",
+  "techStack": [
+    "AES-256-GCM",
+    "Cloudflare Workers",
+    "Python SDK",
+    "Node.js SDK",
+    "Zero-Knowledge"
+  ],
+  "githubUrl": "https://github.com/Van-Romel",
+  "demoUrl": "https://sctechlabs.com",
+  "order": 5,
+  "visible": true
+}

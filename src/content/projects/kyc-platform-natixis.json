@@ -1,17 +1,26 @@
 {
   "title": {
-    "en": "KYC Platform Natixis",
-    "pt": "Plataforma KYC Natixis",
-    "fr": "Plateforme KYC Natixis"
+    "en": "KYC Software Platform (Natixis)",
+    "pt": "Software de KYC Bancário (Natixis)",
+    "fr": "Logiciel KYC Bancaire (Natixis)"
   },
   "description": {
-    "en": "Know Your Customer banking platform for Natixis. Spring Boot backend with Angular frontend, handling secure customer verification workflows.",
-    "pt": "Plataforma bancária Know Your Customer para Natixis. Backend Spring Boot com frontend Angular, processando workflows seguros de verificação de clientes.",
-    "fr": "Plateforme bancaire Know Your Customer pour Natixis. Backend Spring Boot avec frontend Angular, gestion des workflows sécurisés de vérification clients."
+    "en": "Know Your Customer (KYC) regulatory compliance platform and batch processing routines for Natixis Corporate & Investment Banking. Spring Boot 2, Spring Batch 3, Oracle SQL, and Angular 11 with Jenkins/XL Deploy pipelines.",
+    "pt": "Plataforma de conformidade regulatória KYC (Know Your Customer) e rotinas batch para a Natixis CIB. Desenvolvida em Spring Boot 2, Spring Batch 3, Oracle SQL, Hibernate JPA e Angular 11 com esteiras Jenkins/XL Deploy.",
+    "fr": "Plateforme de conformité réglementaire KYC et traitements par lots pour Natixis CIB. Développée avec Spring Boot 2, Spring Batch 3, Oracle SQL, Hibernate JPA et Angular 11."
   },
   "dev": "Van-Romel",
-  "techStack": ["Spring Boot", "Angular", "PostgreSQL", "Redis", "OAuth2", "Docker"],
+  "techStack": [
+    "Java 8",
+    "Spring Boot 2",
+    "Spring Batch 3",
+    "Oracle SQL",
+    "Hibernate JPA",
+    "Angular 11",
+    "XL Deploy"
+  ],
   "githubUrl": "https://github.com/Van-Romel",
-  "demoUrl": "https://www.natixis.com/natixis/jcms/tki_5/en/corporate-and-investment-banking",
-  "order": 2
+  "demoUrl": "https://www.natixis.com",
+  "order": 6,
+  "visible": true
 }
