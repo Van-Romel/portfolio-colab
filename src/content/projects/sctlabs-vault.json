@@ -20,5 +20,6 @@
   "githubUrl": "https://github.com/Van-Romel",
   "demoUrl": "https://sctechlabs.com",
   "order": 5,
-  "visible": true
+  "visible": true,
+  "category": "proprietary"
 }

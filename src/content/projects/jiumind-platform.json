@@ -22,5 +22,6 @@
   "githubUrl": "https://github.com/Van-Romel",
   "demoUrl": "https://jiumind.sctechlabs.com",
   "order": 3,
-  "visible": true
+  "visible": true,
+  "category": "enterprise"
 }

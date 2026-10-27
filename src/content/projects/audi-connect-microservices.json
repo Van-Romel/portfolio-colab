@@ -22,5 +22,6 @@
   "githubUrl": "https://github.com/Van-Romel",
   "demoUrl": "https://www.audi.co.uk/en/owners/audi-connect/plug-and-play/",
   "order": 1,
-  "visible": true
+  "visible": true,
+  "category": "enterprise"
 }

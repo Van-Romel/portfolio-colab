@@ -22,5 +22,6 @@
   "githubUrl": "https://github.com/Van-Romel",
   "demoUrl": "https://developer.mastercard.com/product/id-digital-identity-services",
   "order": 7,
-  "visible": true
+  "visible": true,
+  "category": "enterprise"
 }
