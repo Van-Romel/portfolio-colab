@@ -9,7 +9,7 @@
     "pt": "Plataforma de inteligência fiscal e ponte de ERP corporativo processando milhões de documentos eletrônicos (NFC-e / NF-e) por dia. Backend em Spring Data JDBC, ponte desktop-nuvem em Tauri 2 (Rust) + Apache Pulsar e relatórios virtualizados em JasperReports.",
     "fr": "Plateforme d'intelligence fiscale et passerelle ERP d'entreprise traitant des millions de documents électroniques par jour. Spring Data JDBC, passerelle desktop-cloud Tauri 2 (Rust) + Apache Pulsar et JasperReports."
   },
-  "dev": "Rafael & Van-Romel",
+  "dev": "Rafael, Van-Romel & Fabrício",
   "techStack": [
     "Java 21",
     "Spring Boot",
