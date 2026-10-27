@@ -1,0 +1,543 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import vanromelPhoto from '../assets/vanromel.jpg';
+import rafaelPhoto from '../assets/rafael.png';
+
+const locale = 'en';
+const pageTitle = "SC TechLabs // Enterprise Systems Architecture (DESIGN.md Demo)";
+const pageDescription = "Anti-AI-slop bespoke engineering landing page demo. High-throughput distributed systems, edge computing, and enterprise architecture.";
+
+const projects = [
+  {
+    client: "VOLKSWAGEN GROUP",
+    title: "Audi Connect Plug & Play",
+    category: "CONNECTED VEHICLES // HIGH-THROUGHPUT BATCH",
+    description: "Pan-European connected vehicle telemetry microservices in Kotlin and Java 21 on Azure / Kubernetes (AKS). Diagnosed and eliminated root-cause memory leaks via sliced batch processing with explicit JPA session evictions, draining a backlog of 1M+ vehicle events in 1 week without scaling pods.",
+    metrics: [
+      { label: "Backlog Drained", value: "1,000,000+" },
+      { label: "Pod Scaling", value: "Zero (0)" },
+      { label: "CVEs Remediated", value: "1,000+ down to <100" }
+    ],
+    tech: ["Java 21", "Kotlin", "Spring Boot", "Azure AKS", "PostgreSQL", "OpenDXM GlobalX", "DigiCert mTLS"],
+    featured: true,
+    demoUrl: "https://www.audi.co.uk/en/owners/audi-connect/plug-and-play/",
+    githubUrl: "https://github.com/Van-Romel"
+  },
+  {
+    client: "ATIVOS DIGITAL",
+    title: "Tributaliza Fiscal Engine",
+    category: "FINANCIAL COMPLIANCE // HIGH CONCURRENCY",
+    description: "High-volume taxation calculation engine computing ICMS, PIS, and COFINS for millions of Brazilian NFC-e documents per day. Persistence layer re-architected to Spring Data JDBC and JasperReports disk virtualization (JRSwapFileVirtualizer), permanently eliminating OutOfMemory crashes.",
+    metrics: [
+      { label: "Throughput", value: "Millions NFC-e/Day" },
+      { label: "Report Virtualizer", value: "Disk Swap File" },
+      { label: "Memory Overhead", value: "Near-Zero OOM" }
+    ],
+    tech: ["Java 21", "Spring Data JDBC", "Rust (Tauri 2)", "Apache Pulsar", "PostgreSQL", "Flyway"],
+    featured: false,
+    demoUrl: "https://tributaliza.com.br",
+    githubUrl: "https://github.com/Van-Romel"
+  },
+  {
+    client: "JIUMIND BJJ",
+    title: "JiuMind High-Performance Platform",
+    category: "GLOBAL ATHLETE CATALOG // LOW LATENCY",
+    description: "Global martial arts video training and athlete catalog platform engineered for sub-50ms edge latency using a 3-tier caching topology (Caffeine L1 in-memory, Cloudflare KV L2 at edge, and optimized PostgreSQL).",
+    metrics: [
+      { label: "Edge Latency", value: "< 50ms Global" },
+      { label: "Cache Topology", value: "3-Tier (L1/L2/DB)" },
+      { label: "Edge Provider", value: "Cloudflare KV" }
+    ],
+    tech: ["Cloudflare Edge", "Cloudflare KV", "Java 21", "PostgreSQL", "Caffeine", "Docker"],
+    featured: false,
+    demoUrl: "https://jiumind.com",
+    githubUrl: "https://github.com/Van-Romel"
+  },
+  {
+    client: "SC TECHLABS INTERNAL",
+    title: "SCTechLabs Vault & Zero Trust",
+    category: "ENTERPRISE SECURITY // ZERO-KNOWLEDGE",
+    description: "Internal and client credential management vault featuring client-side zero-knowledge encryption using AES-256-GCM. Encrypted payloads are synchronized via Cloudflare Workers and shielded behind Cloudflare Zero Trust Access.",
+    metrics: [
+      { label: "Encryption", value: "AES-256-GCM" },
+      { label: "Access Model", value: "Zero Knowledge" },
+      { label: "Perimeter", value: "Zero Trust Tunnel" }
+    ],
+    tech: ["AES-256-GCM", "Cloudflare Workers", "Cloudflare Zero Trust", "TypeScript", "WebCrypto"],
+    featured: false,
+    demoUrl: "https://sctechlabs.com",
+    githubUrl: "https://github.com/Van-Romel"
+  },
+  {
+    client: "NATIXIS CIB",
+    title: "KYC Regulatory Compliance Engine",
+    category: "BANKING REGULATIONS // EUROPEAN COMPLIANCE",
+    description: "Enterprise Know Your Customer (KYC) regulatory compliance platform for corporate banking. Developed backend services and batch processing pipelines using Spring Boot 2, Spring Batch 3, and Oracle SQL, deployed across testing and production via Jenkins and XL Deploy.",
+    metrics: [
+      { label: "Framework", value: "Spring Batch 3" },
+      { label: "Database", value: "Oracle SQL" },
+      { label: "Deployment", value: "XL Deploy / Release" }
+    ],
+    tech: ["Java 8", "Spring Boot 2", "Spring Batch 3", "Oracle SQL", "Angular 11", "XL Deploy", "Jenkins"],
+    featured: false,
+    demoUrl: "https://www.natixis.com",
+    githubUrl: "https://github.com/Van-Romel"
+  },
+  {
+    client: "MASTERCARD",
+    title: "Mastercard ID Service Reference Apps",
+    category: "IDENTITY GOVERNANCE // DEVELOPER BLUEPRINTS",
+    description: "Official developer integration blueprints and reference applications for Mastercard Digital Identity Services. Authored low-level design specifications (LLD), managed enterprise release governance for BizOps rollouts, and maintained OpenAPI 3 DSL developer specs.",
+    metrics: [
+      { label: "Program", value: "Mastercard ID" },
+      { label: "Architecture", value: "LLD & Diagram.io" },
+      { label: "Standards", value: "OpenAPI 3 DSL" }
+    ],
+    tech: ["Java", "Spring Framework", "Angular", "Azure", "CosmosDB", "Jenkins CI/CD", "OpenAPI 3"],
+    featured: false,
+    demoUrl: "https://developer.mastercard.com/product/id-digital-identity-services",
+    githubUrl: "https://github.com/Van-Romel"
+  }
+];
+
+const team = [
+  {
+    name: "Rafael Carvalho Gomes",
+    role: "Co-Founder & Chief Technology Officer",
+    location: "Brazil (UTC-3)",
+    flag: "🇧🇷",
+    photo: rafaelPhoto,
+    bio: "Senior Java/Kotlin specialist with extensive experience across cloud-native architectures, distributed batch processing, OutSystems, and high-concurrency systems design.",
+    linkedin: "https://www.linkedin.com/in/rafael-carvalho-gomes-700752101/",
+    skills: ["Java", "Kotlin", "Spring Boot", "PostgreSQL", "Kubernetes", "AWS", "System Design"]
+  },
+  {
+    name: "Van-Romel Alves Sena Neto",
+    role: "Co-Founder & Principal Solutions Architect",
+    location: "Portugal / Germany (UTC+0 / UTC+1)",
+    flag: "🇵🇹",
+    photo: vanromelPhoto,
+    bio: "Lead Backend Engineer & Technical Owner for Volkswagen Group (Audi Connect). Advisor on distributed systems, edge architectures, zero-trust security, and memory profiling.",
+    linkedin: "https://www.linkedin.com/in/van-romel-neto/",
+    skills: ["Java 21", "Kotlin", "Spring Data JDBC", "Kubernetes AKS", "Cloudflare Edge", "Rust (Tauri 2)", "PostgreSQL"]
+  },
+  {
+    name: "Fabrício",
+    role: "Software Developer (Full-Stack)",
+    location: "Brazil (UTC-3)",
+    flag: "🇧🇷",
+    photo: null,
+    bio: "Backend and full-stack software engineer delivering robust REST APIs, high-throughput database operations, and continuous integration pipelines across Tributaliza and JiuMind.",
+    linkedin: "https://www.linkedin.com/in/van-romel-neto/",
+    skills: ["Java", "Spring Boot", "PostgreSQL", "Docker", "RESTful Architecture", "Gitflow"]
+  }
+];
+---
+
+<Layout locale={locale} title={pageTitle} description={pageDescription}>
+  <!-- DESIGN.MD COMPARISON BANNER -->
+  <aside class="sticky top-0 z-50 bg-[#0A0E17] border-b border-indigo-500/30 px-4 py-2 text-xs font-mono text-slate-300">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <span class="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-indigo-400 font-semibold">[ DESIGN.md ACTIVE ]</span>
+        <span class="hidden sm:inline text-slate-400">Anti-AI-Slop Spec: hairline architectural borders, zero neon blur orbs, zero rainbow text.</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="/" class="text-indigo-400 hover:text-white underline transition-colors">
+          &larr; Return to Standard View
+        </a>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-400">Route: <code class="text-indigo-300">/demo</code></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN HUD HEADER -->
+  <header class="border-b border-slate-800/80 bg-[#080C14]/90 backdrop-blur-md sticky top-8 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="h-8 w-8 rounded bg-slate-900 border border-slate-700 flex items-center justify-center font-mono text-xs font-bold text-indigo-400">
+          SC
+        </div>
+        <div>
+          <span class="font-bold text-slate-100 tracking-tight text-sm sm:text-base">SC TECHLABS</span>
+          <span class="hidden sm:inline font-mono text-[10px] text-slate-500 ml-2">SYSTEMS_ARCHITECTURE // v2.0</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 font-mono text-xs text-slate-400">
+        <a href="#cases" class="hover:text-indigo-400 transition-colors">01. Cases</a>
+        <a href="#disciplines" class="hover:text-indigo-400 transition-colors">02. Disciplines</a>
+        <a href="#architecture" class="hover:text-indigo-400 transition-colors">03. Blueprints</a>
+        <a href="#team" class="hover:text-indigo-400 transition-colors">04. Engineering Team</a>
+        <a href="#contact" class="hover:text-indigo-400 transition-colors">05. Direct Intake</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <span class="hidden lg:inline-flex items-center gap-1.5 font-mono text-[11px] text-emerald-400 bg-emerald-950/40 border border-emerald-800/50 px-2.5 py-1 rounded">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+          PROD_READY
+        </span>
+        <a href="#contact" class="font-mono text-xs px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded font-medium transition-colors border border-indigo-500/50">
+          Book Technical Review
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="bg-[#080C14] text-slate-200 min-h-screen">
+
+    <!-- HERO SECTION (EDITORIAL & ARCHITECTURAL) -->
+    <section class="relative pt-16 pb-20 border-b border-slate-800/80">
+      <!-- Architectural structural grid (subtle 1px hairline) -->
+      <div class="absolute inset-0 pointer-events-none opacity-[0.04]" style="background-image: linear-gradient(#94A3B8 1px, transparent 1px), linear-gradient(90deg, #94A3B8 1px, transparent 1px); background-size: 48px 48px;"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-4xl">
+          <!-- Monospace Kicker -->
+          <div class="inline-flex items-center gap-2 font-mono text-xs text-indigo-400 bg-indigo-950/40 border border-indigo-800/50 px-3 py-1 rounded mb-6">
+            <span>[ SYSTEM SPECIFICATION ]</span>
+            <span class="text-slate-500">//</span>
+            <span>HIGH-THROUGHPUT BACKENDS & DISTRIBUTED SYSTEMS</span>
+          </div>
+
+          <!-- Stark, High-Contrast Typography (NO RAINBOW GRADIENTS) -->
+          <h1 class="text-4xl sm:text-6xl font-extrabold text-slate-50 tracking-tight leading-[1.08]">
+            Architecting High-Throughput Cloud & Edge Systems.
+          </h1>
+
+          <p class="mt-6 text-lg sm:text-xl text-slate-400 leading-relaxed max-w-3xl">
+            Boutique software engineering consultancy founded by staff-level engineers. We design, optimize, and rescue mission-critical backends in Kotlin, Java 21, and Rust — replacing AI hallucinations and cookie-cutter templates with verified production code.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#contact" class="font-mono text-sm px-6 py-3 bg-slate-50 hover:bg-slate-200 text-slate-950 rounded font-semibold transition-all">
+              Schedule Architecture Review &rarr;
+            </a>
+            <a href="#cases" class="font-mono text-sm px-6 py-3 bg-slate-900/80 hover:bg-slate-800 text-slate-300 rounded font-medium border border-slate-700 transition-all">
+              Inspect Technical Cases ↓
+            </a>
+          </div>
+        </div>
+
+        <!-- HUD METRICS BAR (HAIRLINE BORDER GRID) -->
+        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 border border-slate-800 bg-slate-950/60 divide-y md:divide-y-0 md:divide-x divide-slate-800 rounded-lg overflow-hidden">
+          <div class="p-6">
+            <div class="font-mono text-xs text-indigo-400 uppercase tracking-wider">[ THROUGHPUT ]</div>
+            <div class="mt-2 text-3xl font-extrabold text-slate-100 font-mono">1M+</div>
+            <div class="mt-1 text-xs text-slate-400">Events & NFC-e Processed Daily</div>
+          </div>
+          <div class="p-6">
+            <div class="font-mono text-xs text-cyan-400 uppercase tracking-wider">[ EDGE LATENCY ]</div>
+            <div class="mt-2 text-3xl font-extrabold text-slate-100 font-mono">&lt; 50ms</div>
+            <div class="mt-1 text-xs text-slate-400">3-Tier Edge & KV Topology</div>
+          </div>
+          <div class="p-6">
+            <div class="font-mono text-xs text-emerald-400 uppercase tracking-wider">[ TRACK RECORD ]</div>
+            <div class="mt-2 text-3xl font-extrabold text-slate-100 font-mono">+10 Yrs</div>
+            <div class="mt-1 text-xs text-slate-400">Enterprise Java / Cloud Systems</div>
+          </div>
+          <div class="p-6">
+            <div class="font-mono text-xs text-amber-400 uppercase tracking-wider">[ INTEGRITY ]</div>
+            <div class="mt-2 text-3xl font-extrabold text-slate-100 font-mono">100%</div>
+            <div class="mt-1 text-xs text-slate-400">Truthful, Production-Verified Metrics</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE BLUEPRINT INSPECTOR (LIVE TECH SHOWCASE) -->
+    <section id="architecture" class="py-20 border-b border-slate-800/80 bg-[#0A0F1A]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+          <div>
+            <div class="font-mono text-xs text-indigo-400">[ ARCHITECTURAL PATTERNS ]</div>
+            <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
+              Production Solutions, Not Mock Demos.
+            </h2>
+          </div>
+          <p class="text-sm text-slate-400 max-w-md">
+            Click through real architectural implementations we engineered to solve memory leaks, scaling bottlenecks, and edge latency.
+          </p>
+        </div>
+
+        <div class="border border-slate-800 bg-[#080C14] rounded-lg overflow-hidden">
+          <!-- Terminal tab header -->
+          <div class="bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center justify-between font-mono text-xs">
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-slate-600"></span>
+              <span class="text-slate-400">spec_inspector.sh // real_production_cases</span>
+            </div>
+            <div class="text-slate-500 hidden sm:block">STATUS: VERIFIED_IN_PROD</div>
+          </div>
+
+          <!-- Interactive Blueprint Tabs -->
+          <div class="p-6 md:p-8 grid md:grid-cols-3 gap-8">
+            <div class="space-y-3">
+              <button class="w-full text-left p-3.5 rounded border border-indigo-500/40 bg-indigo-950/20 text-indigo-300 font-mono text-xs transition-all">
+                <div class="font-bold text-slate-100 text-sm">01. Sliced Batch Processing</div>
+                <div class="text-[11px] text-slate-400 mt-1">Volkswagen Group / Audi Connect</div>
+                <div class="text-[10px] text-emerald-400 mt-1.5">✓ Drained 1M+ event backlog</div>
+              </button>
+
+              <button class="w-full text-left p-3.5 rounded border border-slate-800 bg-slate-900/40 hover:bg-slate-900 text-slate-400 font-mono text-xs transition-all">
+                <div class="font-bold text-slate-200 text-sm">02. Disk Swap Virtualizer</div>
+                <div class="text-[11px] text-slate-500 mt-1">Tributaliza Fiscal Engine</div>
+                <div class="text-[10px] text-indigo-400 mt-1.5">✓ Zero OutOfMemory crashes</div>
+              </button>
+
+              <button class="w-full text-left p-3.5 rounded border border-slate-800 bg-slate-900/40 hover:bg-slate-900 text-slate-400 font-mono text-xs transition-all">
+                <div class="font-bold text-slate-200 text-sm">03. 3-Tier Edge Topology</div>
+                <div class="text-[11px] text-slate-500 mt-1">JiuMind BJJ Platform</div>
+                <div class="text-[10px] text-cyan-400 mt-1.5">✓ &lt; 50ms edge catalog latency</div>
+              </button>
+            </div>
+
+            <div class="md:col-span-2 font-mono text-xs bg-slate-950 p-5 rounded border border-slate-800 space-y-4">
+              <div class="text-slate-400 flex items-center justify-between border-b border-slate-850 pb-3">
+                <span class="text-indigo-400 font-bold">// ARCHITECTURAL DIAGNOSIS & REMEDIATION:</span>
+                <span class="text-emerald-400">PASS (EXIT 0)</span>
+              </div>
+
+              <div class="space-y-2 text-slate-300 leading-relaxed">
+                <p><span class="text-slate-500">PROBLEM:</span> High-throughput vehicle telemetry in Kubernetes AKS was experiencing sporadic OOMKills under heavy load due to Hibernate 1st-level cache retaining entities across batch chunks.</p>
+                <p><span class="text-slate-500">DECISION:</span> Replaced standard repository paging with <code class="text-indigo-300">Slice&lt;T&gt;</code> iteration, deterministic chunk size constraints, and explicit <code class="text-indigo-300">entityManager.clear()</code> evictions at boundary commits.</p>
+                <p><span class="text-slate-500">OUTCOME:</span> Drained an accumulated backlog of 1,000,000+ vehicle events within 7 days, maintaining a flat memory footprint and avoiding costly pod horizontal scaling.</p>
+              </div>
+
+              <div class="pt-3 border-t border-slate-850 flex flex-wrap gap-2 text-[10px]">
+                <span class="px-2 py-1 bg-slate-900 border border-slate-700 text-slate-300 rounded">[ KOTLIN / JAVA 21 ]</span>
+                <span class="px-2 py-1 bg-slate-900 border border-slate-700 text-slate-300 rounded">[ JPA SESSION EVICTION ]</span>
+                <span class="px-2 py-1 bg-slate-900 border border-slate-700 text-slate-300 rounded">[ AZURE AKS ]</span>
+                <span class="px-2 py-1 bg-slate-900 border border-slate-700 text-slate-300 rounded">[ 1M+ EVENTS ]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENTERPRISE CASE STUDIES (BENTO GRID - HIGH CRAFT) -->
+    <section id="cases" class="py-20 border-b border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-12">
+          <div class="font-mono text-xs text-indigo-400">[ PROVEN ENTERPRISE DELIVERABLES ]</div>
+          <h2 class="mt-2 text-3xl font-extrabold text-slate-50 tracking-tight">
+            Selected Client & Product Architectures.
+          </h2>
+          <p class="mt-3 text-slate-400">
+            Real enterprise case studies with zero marketing fluff. Every metric is backed by production code and auditable track records.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((proj) => (
+            <article class={`border border-slate-800 bg-[#0C121E] hover:border-indigo-500/50 transition-all rounded-lg p-6 flex flex-col justify-between ${proj.featured ? 'md:col-span-2 lg:col-span-2 bg-[#0E1526]' : ''}`}>
+              <div>
+                <div class="flex items-center justify-between font-mono text-[11px] text-slate-400 border-b border-slate-800 pb-3">
+                  <span class="text-indigo-400 font-bold">{proj.client}</span>
+                  <span>{proj.category}</span>
+                </div>
+
+                <h3 class="mt-4 text-xl font-bold text-slate-100 tracking-tight">
+                  {proj.title}
+                </h3>
+
+                <p class="mt-3 text-sm text-slate-300 leading-relaxed">
+                  {proj.description}
+                </p>
+
+                <!-- Key Metrics -->
+                <div class="mt-5 grid grid-cols-3 gap-2 py-3 px-3 bg-slate-950/70 border border-slate-800 rounded font-mono text-xs">
+                  {proj.metrics.map(m => (
+                    <div>
+                      <div class="text-[10px] text-slate-500 uppercase">{m.label}</div>
+                      <div class="text-slate-200 font-bold mt-0.5">{m.value}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-slate-800">
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                  {proj.tech.map(t => (
+                    <span class="font-mono text-[10px] px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-300">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div class="flex items-center justify-between text-xs font-mono">
+                  <a href={proj.demoUrl} target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-white transition-colors flex items-center gap-1">
+                    <span>Inspect System</span> &rarr;
+                  </a>
+                  <a href={proj.githubUrl} target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-slate-300 transition-colors">
+                    GitHub Spec
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE DISCIPLINES (SPECIFIC & AUTHORITY-DRIVEN) -->
+    <section id="disciplines" class="py-20 border-b border-slate-800/80 bg-[#0A0F1A]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-12">
+          <div class="font-mono text-xs text-indigo-400">[ CAPABILITY MATRIX ]</div>
+          <h2 class="mt-2 text-3xl font-extrabold text-slate-50 tracking-tight">
+            Architectural Disciplines & Scope.
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="p-6 border border-slate-800 bg-[#080C14] rounded-lg">
+            <div class="font-mono text-xs text-indigo-400">01 // DISTRIBUTED EVENT PROCESSING & MEMORY PROFILING</div>
+            <h3 class="mt-2 text-lg font-bold text-slate-100">Batch Optimization & Memory Leak Remediation</h3>
+            <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+              We diagnose memory bloat, high GC pause times, and thread exhaustion in production Java/Kotlin clusters. Implementing sliced iteration, session flushes, and streaming queues to drain millions of events with constant memory overhead.
+            </p>
+            <div class="mt-4 font-mono text-xs text-slate-500">
+              Stack: Java 21, Kotlin, Spring Batch, Virtual Threads, HikariCP, PostgreSQL.
+            </div>
+          </div>
+
+          <div class="p-6 border border-slate-800 bg-[#080C14] rounded-lg">
+            <div class="font-mono text-xs text-cyan-400">02 // LOW-LATENCY EDGE TOPOLOGIES & CACHING</div>
+            <h3 class="mt-2 text-lg font-bold text-slate-100">Edge Caching & Global Content Acceleration</h3>
+            <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+              Sub-50ms worldwide content delivery through tiered caching: in-memory local caches (Caffeine) paired with Cloudflare Workers / KV on the edge and connection pooling back to central relational engines.
+            </p>
+            <div class="mt-4 font-mono text-xs text-slate-500">
+              Stack: Cloudflare Workers, Cloudflare KV, Caffeine, WebSocket, Redis.
+            </div>
+          </div>
+
+          <div class="p-6 border border-slate-800 bg-[#080C14] rounded-lg">
+            <div class="font-mono text-xs text-emerald-400">03 // REGULATORY COMPLIANCE & ZERO-TRUST SECURITY</div>
+            <h3 class="mt-2 text-lg font-bold text-slate-100">GDPR Orchestration & Client-Side Encryption</h3>
+            <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+              Auditable distributed architectures: GDPR "Right to be Forgotten" asynchronous fan-out/fan-in with fallback logs, banking KYC batch compliance (European regulatory standards), and zero-knowledge AES-256-GCM vaults.
+            </p>
+            <div class="mt-4 font-mono text-xs text-slate-500">
+              Stack: AES-256-GCM, mTLS (DigiCert), OpenDXM GlobalX, Spring Security, Cloudflare Zero Trust.
+            </div>
+          </div>
+
+          <div class="p-6 border border-slate-800 bg-[#080C14] rounded-lg">
+            <div class="font-mono text-xs text-amber-400">04 // HIGH-CONCURRENCY FISCAL ENGINES</div>
+            <h3 class="mt-2 text-lg font-bold text-slate-100">Large-Scale Document Processing & Tax Engines</h3>
+            <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+              Processing millions of electronic tax receipts (NFC-e) daily without data drift. Eliminating heavy ORM overhead through Spring Data JDBC and disk-virtualized JasperReports generation for multi-gigabyte financial dossiers.
+            </p>
+            <div class="mt-4 font-mono text-xs text-slate-500">
+              Stack: Spring Data JDBC, Flyway, PostgreSQL, JasperReports Virtualizer, Tauri 2 Rust.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM SECTION (HONEST, CREDIBLE, HUMAN) -->
+    <section id="team" class="py-20 border-b border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-12">
+          <div class="font-mono text-xs text-indigo-400">[ ENGINEERING LEADERSHIP ]</div>
+          <h2 class="mt-2 text-3xl font-extrabold text-slate-50 tracking-tight">
+            Directly Engineered by Senior Practitioners.
+          </h2>
+          <p class="mt-3 text-slate-400">
+            No middle managers. No outsourced junior developers. You work directly with technical owners and principal architects who write production code.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {team.map((m) => (
+            <div class="border border-slate-800 bg-[#0C121E] rounded-lg p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-4">
+                  {m.photo ? (
+                    <Image src={m.photo} alt={m.name} width={56} height={56} class="h-14 w-14 rounded-md object-cover border border-slate-700" />
+                  ) : (
+                    <div class="h-14 w-14 rounded-md bg-slate-900 border border-slate-700 flex items-center justify-center font-mono text-base font-bold text-indigo-400">
+                      {m.name.substring(0, 2).toUpperCase()}
+                    </div>
+                  )}
+                  <div>
+                    <h3 class="text-base font-bold text-slate-100">{m.name}</h3>
+                    <div class="text-xs text-indigo-400 font-mono mt-0.5">{m.role}</div>
+                    <div class="text-[11px] text-slate-500 font-mono mt-0.5">{m.flag} {m.location}</div>
+                  </div>
+                </div>
+
+                <p class="mt-4 text-xs text-slate-300 leading-relaxed">
+                  {m.bio}
+                </p>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-slate-800">
+                <div class="flex flex-wrap gap-1 mb-4">
+                  {m.skills.map(s => (
+                    <span class="font-mono text-[9px] px-1.5 py-0.5 bg-slate-900 border border-slate-800 text-slate-400 rounded">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+                <a href={m.linkedin} target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-indigo-400 hover:text-white transition-colors flex items-center gap-1">
+                  <span>LinkedIn Profile</span> &rarr;
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- DIRECT INTAKE & CONTACT (NO FLUFF) -->
+    <section id="contact" class="py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="font-mono text-xs text-indigo-400 mb-2">[ DIRECT TECHNICAL INTAKE ]</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-50 tracking-tight">
+          Facing a High-Throughput or Architectural Bottleneck?
+        </h2>
+        <p class="mt-4 text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          We provide weekly architectural governance, performance profiling, and senior backend engineering for teams scaling mission-critical platforms.
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <a href="mailto:contact@sctechlabs.com?subject=Technical%20Architecture%20Inquiry" class="font-mono text-sm px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded font-medium transition-colors border border-indigo-500">
+            Email: contact@sctechlabs.com
+          </a>
+          <a href="https://www.linkedin.com/in/van-romel-neto/" target="_blank" rel="noopener noreferrer" class="font-mono text-sm px-6 py-3 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded font-medium border border-slate-700 transition-colors">
+            Direct via LinkedIn &rarr;
+          </a>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-slate-850 grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs text-slate-500">
+          <div>Lisbon / London (UTC+0)</div>
+          <div>Frankfurt / Berlin (UTC+1)</div>
+          <div>São Paulo / Fortaleza (UTC-3)</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MINIMALIST FOOTER -->
+  <footer class="border-t border-slate-800/80 bg-[#060910] py-8 text-slate-500 font-mono text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        © 2026 SC TECHLABS. Anti-AI-Slop Spec (<code class="text-indigo-400">DESIGN.md</code>).
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="/" class="hover:text-slate-300 transition-colors">Standard Theme</a>
+        <a href="/demo" class="text-indigo-400">DESIGN.md Demo</a>
+        <a href="https://github.com/Van-Romel" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition-colors">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</Layout>
