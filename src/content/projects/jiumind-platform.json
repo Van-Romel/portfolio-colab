@@ -5,9 +5,9 @@
     "fr": "Plateforme JiuMind BJJ"
   },
   "description": {
-    "en": "High-performance Brazilian Jiu-Jitsu athlete catalog and video streaming platform. Engineered with a sub-50ms latency 3-tier caching topology (Caffeine in-memory, Cloudflare KV at edge, and PostgreSQL) on K3s Kubernetes.",
-    "pt": "Plataforma de alta performance para catálogo de atletas e vídeos de Jiu-Jitsu Brasileiro. Arquitetura com cache de 3 camadas (Caffeine em memória, Cloudflare KV no Edge e PostgreSQL) garantindo latência <50ms em K3s.",
-    "fr": "Plateforme de haute performance pour athlètes et vidéos de Jiu-Jitsu Brésilien. Architecture avec cache à 3 niveaux (Caffeine, Cloudflare KV et PostgreSQL) garantissant une latence <50ms sur K3s."
+    "en": "High-performance Brazilian Jiu-Jitsu athlete catalog and video streaming platform. Engineered with a sub-50ms latency 3-tier caching topology (Caffeine in-memory, Cloudflare KV at edge, and PostgreSQL) on K3s Kubernetes. In stealth development for 2027 production launch.",
+    "pt": "Plataforma de alta performance para catálogo de atletas e vídeos de Jiu-Jitsu Brasileiro com cache de 3 camadas (Caffeine em memória, Cloudflare KV no Edge e PostgreSQL) em K3s. Em desenvolvimento confidencial com lançamento de produção previsto para 2027.",
+    "fr": "Plateforme de haute performance pour athlètes et vídeos de Jiu-Jitsu Brésilien avec cache à 3 niveaux (Caffeine, Cloudflare KV et PostgreSQL) sur K3s. En développement confidentiel pour un lancement de production prévu en 2027."
   },
   "dev": "Van-Romel",
   "techStack": [
@@ -20,7 +20,7 @@
     "Docker"
   ],
   "githubUrl": "https://github.com/Van-Romel",
-  "demoUrl": "https://jiumind.sctechlabs.com",
+  "demoUrl": "",
   "order": 3,
   "visible": true,
   "category": "enterprise"
